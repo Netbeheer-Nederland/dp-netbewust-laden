@@ -51,6 +51,8 @@ Gebruiker -> Gebruiker: 4. Verwerk dataset
 
 === Architectuur
 
+Vanuit architectuurperspectief zijn de volgende keuzes gemaakt:
+
 .Architectuur
 [d2,svg,theme=4,scaledwidth=100%]
 ----
