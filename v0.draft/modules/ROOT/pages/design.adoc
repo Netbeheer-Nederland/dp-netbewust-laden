@@ -26,7 +26,7 @@ investeringen en de energie transitie zal vertragen.
 
 Het volgende gebruiksscenario wordt ondersteund:
 
-.Data Product
+.Gebruiksscenario
 [d2,svg,theme=4]
 ----
 shape: sequence_diagram
