@@ -26,8 +26,22 @@ investeringen en de energie transitie zal vertragen.
 
 Het volgende gebruiksscenario wordt ondersteund:
 
-* decentraal dataproduct -> 3x dataservice
-* productregistratie EDSN Dataportaal
+.Data Product
+[d2,svg,theme=4]
+----
+shape: sequence_diagram
+
+Gebruiker -> EDSN: 1. Zoek dataproduct op EDSN Dataportaal
+Gebruiker -> Netbeheerder: 2. Vraag dataset bij individuele netbeheerder
+Netbeheerder -> Gebruiker: 3. Lever dataset
+Gebruiker -> Gebruiker: 4. Verwerk dataset
+----
+
+1. de gebruiker zoekt het dataproduct op het EDSN Dataportaal;
+2. de gebruiker downloadt de dataset voor een individuele netbeheerder vanuit
+   de decentrale dataservice;
+3. de netbeheerder levert de dataset;
+4. de gebruiker verwerkt de dataset(s) voor eigen doeleinden.
 
 === Architectuur
 
