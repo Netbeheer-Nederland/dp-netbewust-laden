@@ -52,7 +52,7 @@ Gebruiker -> Gebruiker: 4. Verwerk dataset
 === Architectuur
 
 .Architectuur
-[d2,svg,theme=4]
+[d2,svg,theme=4,scaledwidth=100%]
 ----
 vars: {
   d2-config: {
@@ -87,9 +87,9 @@ Load.class: business
 Extract -> Transform: "triggers"
 Transform -> Load: "triggers"
 "Data Product" -> "Extract": "serves"
-"Data Product" -> "EDSN Dataportaal": "published on"
+"Data Product" -> "EDSN Dataportaal": "serves"
 Extract -> Consumer: "serves"
-"Data Product" -> "JSON File": "serialised by"
+"JSON File" -> "Data Product": "realises"
 
 classes: {
   *: {
