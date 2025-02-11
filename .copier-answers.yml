@@ -1,0 +1,7 @@
+_commit: v0.7.8
+_src_path: gh:Netbeheer-Nederland/tmpl-dp
+description: Information models for the Netbewust Laden data product.
+name: dp-netbewust-laden
+org: Netbeheer-Nederland
+schema_base_uri: http://data.netbeheernederland.nl/data-product
+title: Netbewust Laden
