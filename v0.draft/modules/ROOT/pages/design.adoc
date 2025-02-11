@@ -91,6 +91,53 @@ Transform -> Load: "triggers"
 Extract -> Consumer: "serves"
 "JSON File" -> "Data Product": "realises"
 
+legend: "" {
+  style: {
+    fill: transparent
+    stroke: transparent
+  }
+  grid-rows: 3
+  grid-columns: 2
+  grid-gap: 10
+  near: bottom-right
+  business_color: "" {
+    style: {
+      fill: "#f9db25"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  business_text: "Business" {
+    shape: text
+  }
+  application_color: "" {
+    style: {
+      fill: "#8fbce6"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  application_text: "Application" {
+    shape: text
+  }
+  technology_color: "" {
+    style: {
+      fill: "#b9cf3b"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  technology_text: "Technology" {
+    shape: text
+  }
+}
+
 classes: {
   *: {
     style: {
