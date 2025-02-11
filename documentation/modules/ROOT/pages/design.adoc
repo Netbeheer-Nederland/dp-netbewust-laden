@@ -51,8 +51,81 @@ Gebruiker -> Gebruiker: 4. Verwerk dataset
 
 === Architectuur
 
-* de structuur (logisch model) van de dataset is gebaseerd op het conceptuele
-  model Begrippenmodel NBNL en het Common Information Model;
+.Architectuur
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    pad: 20
+  }
+}
+
+grid-rows: 5
+grid-columns: 4
+
+vertical-gap: 80
+horizontal-gap: 160
+
+1.class: empty
+Consumer.class: business
+2.class: empty
+3.class: empty
+
+4.class: empty
+Extract.class: business
+Transform.class: business
+Load.class: business
+
+"EDSN Dataportaal".class: application
+"Data Product".class: application
+5.class: empty
+6.class: empty
+
+7.class: empty
+"JSON File".class: technology
+
+Extract -> Transform: "triggers"
+Transform -> Load: "triggers"
+"Data Product" -> "Extract": "serves"
+"Data Product" -> "EDSN Dataportaal": "published on"
+Extract -> Consumer: "serves"
+"Data Product" -> "JSON File": "serialised by"
+
+classes: {
+  *: {
+    style: {
+      border-radius: 8
+      shadow: true
+    }
+  }
+  empty: {
+    label: ""
+    style: {
+      fill: transparent
+      stroke-width: 0
+    }
+  }
+  business: {
+    style: {
+      fill: "#f9db25"
+    }
+  }
+  application: {
+    style: {
+      fill: "#8fbce6"
+    }
+  }
+  technology: {
+    style: {
+      fill: "#b9cf3b"
+    }
+  }
+}
+----
+
+* de structuur (logisch model) van de dataset behorende bij het dataproduct is
+  gebaseerd op het conceptuele model _Begrippenmodel NBNL_ en het _Common
+  Information Model_;
 * aanlevering van de dataset vanuit de netbeheerder geschiedt via JSON-bestand.
   Een JSON Schema op basis van het logisch model is hiervoor beschikbaar
   gemaakt;
