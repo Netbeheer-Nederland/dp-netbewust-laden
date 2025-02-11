@@ -1,0 +1,79 @@
+= Design
+
+Dit ontwerp beschrijft het beoogde gebruiksscenario voor het dataproduct
+_Netbewust Laden_, alsmede de achterliggende architectuur en gemaakte keuzes.
+
+== Reikwijdte
+
+De gezamenlijke netbeheerders verwachten dat door de sterk toenemende vraag
+naar netcapaciteit op de LS-netten congestie zal ontstaan en waarbij _NetBewust
+Laden_ gezien wordt als een van de oplossingen.
+
+Dit dataproduct biedt de gezamenlijke netbeheerders de mogelijkheid om
+periodiek op een uniforme wijze inzicht te geven aan de gemeenten,
+laadpaalexploitanten, NAL-regio’s en andere belanghebbenden in welke gebieden
+(dreigende) capaciteit schaarste te verwachten valt.
+
+Dit om de mobiliteitstransitie te kunnen faciliteren en om de lokaal
+beschikbare netcapaciteit optimaal mogelijk te benutten voor alle gebruikers
+van elektriciteit en overbelasting door pieken in de vraag te voorkomen. Het
+alternatief is het verzwaren van het net wat een lange doorlooptijd kent, hoge
+investeringen en de energie transitie zal vertragen.
+
+== Dataservice
+
+=== Gebruiksscenario
+
+Het volgende gebruiksscenario wordt ondersteund:
+
+* decentraal dataproduct -> 3x dataservice
+* productregistratie EDSN Dataportaal
+
+=== Architectuur
+
+* de structuur (logisch model) van de dataset is gebaseerd op het conceptuele
+  model Begrippenmodel NBNL en het Common Information Model;
+* aanlevering van de dataset vanuit de netbeheerder geschiedt via JSON-bestand.
+  Een JSON Schema op basis van het logisch model is hiervoor beschikbaar
+  gemaakt;
+* netbeheerders leveren de dataset aan via een eigen bestandslocatie;
+* het dataproduct _Netbewust Laden_ is vindbaar via het EDSN Dataportaal.
+
+== Dataset
+
+De dataset beschrijft capaciteits- en belastinginformatie voor kabels en
+transformatoren, clustering van laadpalen en bijbehorende _Charge Point
+Operators_ (CPO).
+
+=== Volume, variety, veracity, velocity
+
+[cols="1, 1"]
+|===
+|Type |Beschrijving
+
+|Volume
+|Laag, < 100MB (ongecomprimeerd)
+
+|Variety
+|Gestructureerd
+
+|Veracity
+|Medium, sluit aan op het bestaande inzicht van de netbeheerder in het LS-net
+
+|Velocity
+|Laag, dataset verandert wanneer de clustering verandert
+|===
+
+== Voorwaarden
+
+Dit dataproduct wordt als _open data_ aangeboden.
+
+== Beslissingen en aannames
+
+[cols="1, 1"]
+|===
+|Type |Beschrijving
+
+|Beslissing
+|Dataproduct _NetBewust Laden_ wordt als decentraal dataproduct onder een gecentraliseerd schema beschikbaar gemaakt.
+|===
