@@ -31,6 +31,12 @@ Het volgende gebruiksscenario wordt ondersteund:
 ----
 shape: sequence_diagram
 
+vars: {
+  d2-config: {
+    pad: 20
+  }
+}
+
 Gebruiker -> EDSN: 1. Zoek dataproduct op EDSN Dataportaal
 Gebruiker -> Netbeheerder: 2. Vraag dataset bij individuele netbeheerder
 Netbeheerder -> Gebruiker: 3. Lever dataset
