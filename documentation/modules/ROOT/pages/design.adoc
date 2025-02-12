@@ -3,7 +3,7 @@
 Dit ontwerp beschrijft het beoogde gebruiksscenario voor het dataproduct
 _Netbewust Laden_, alsmede de achterliggende architectuur en gemaakte keuzes.
 
-include::dp-netbewust-laden:partial$data_product.adoc[]
+include::partial$data_product.adoc[]
 
 == Reikwijdte
 
@@ -193,7 +193,7 @@ Operators_ (CPO).
 
 === Volume, variety, veracity, velocity
 
-include::dp-netbewust-laden:partial$four_v.adoc[]
+include::partial$four_v.adoc[]
 
 [cols="1, 1"]
 |===
