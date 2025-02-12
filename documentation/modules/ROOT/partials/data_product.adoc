@@ -1,5 +1,3 @@
-[NOTE]
-====
 Voor alle data-uitwisseling binnen de scope van de _Visie Datadelen_ is
 expliciet gekozen voor het denken over data in de vorm van _dataproducten_. Een
 dataproduct combineert de semantische-, technische- en gebruiksaspecten van
@@ -18,4 +16,3 @@ volgende componenten:
 
 Het _dataproduct_ combineert de _dataset_ en _dataservice_, verrijkt met
 _voorwaarden_ voor gebruik.
-====

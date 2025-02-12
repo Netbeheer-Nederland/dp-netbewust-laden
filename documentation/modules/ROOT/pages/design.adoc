@@ -3,7 +3,10 @@
 Dit ontwerp beschrijft het beoogde gebruiksscenario voor het dataproduct
 _Netbewust Laden_, alsmede de achterliggende architectuur en gemaakte keuzes.
 
+[NOTE]
+====
 include::dp-netbewust-laden:partial$data_product.adoc[]
+====
 
 == Reikwijdte
 
@@ -108,7 +111,7 @@ legend: "" {
   near: bottom-right
   business_color: "" {
     style: {
-      fill: "#f9db25"
+      fill: "#ffffaf"
       stroke: black
       stroke-width: 1
     }
@@ -120,7 +123,7 @@ legend: "" {
   }
   application_color: "" {
     style: {
-      fill: "#8fbce6"
+      fill: "#afffff"
       stroke: black
       stroke-width: 1
     }
@@ -132,7 +135,7 @@ legend: "" {
   }
   technology_color: "" {
     style: {
-      fill: "#b9cf3b"
+      fill: "#afffaf"
       stroke: black
       stroke-width: 1
     }
@@ -160,17 +163,17 @@ classes: {
   }
   business: {
     style: {
-      fill: "#f9db25"
+      fill: "#ffffaf"
     }
   }
   application: {
     style: {
-      fill: "#8fbce6"
+      fill: "#afffff"
     }
   }
   technology: {
     style: {
-      fill: "#b9cf3b"
+      fill: "#afffaf"
     }
   }
 }
@@ -193,7 +196,10 @@ Operators_ (CPO).
 
 === Volume, variety, veracity, velocity
 
+[NOTE]
+====
 include::dp-netbewust-laden:partial$four_v.adoc[]
+====
 
 [cols="1, 1"]
 |===
