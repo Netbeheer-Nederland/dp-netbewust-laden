@@ -1,5 +1,3 @@
-[NOTE]
-====
 Data kent vier kenmerken:
 
 * _volume_: data kent een volume, een hoeveelheid;
@@ -8,4 +6,3 @@ Data kent vier kenmerken:
 * _veracity_ (betrouwbaarheid): de mate waarin de data vertrouwd kan worden
   voor de toepassing;
 * _velocity_ (snelheid): de frequentie waarmee data verandert.
-====
