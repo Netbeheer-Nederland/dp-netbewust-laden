@@ -1,0 +1,758 @@
+= `ForecastDataSet`
+:toclevels: 4
+
+
++++A single instance of a published dataset.+++
+
+
+[cols="h,3",width=65%]
+|===
+| Type
+| Class
+
+| URI
+| `this:ForecastDataSet`
+
+
+
+
+|===
+
+== Class hierarchy
+* *`ForecastDataSet`*
+
+
+== Slots
+
+
+
+.Associated classes
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    pad: 20
+  }
+}
+ForecastDataSet {
+  style {
+    fill: "#cccccc"
+    shadow: true
+  }
+}
+
+
+
+Terminal {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+TopologicalNode {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+CoordinateSystem {
+  style {
+    fill: "#d1e7c2"
+    shadow: true
+  }
+}
+
+
+
+UsagePoint {
+  style {
+    fill: "#d1e7c2"
+    shadow: true
+  }
+}
+
+
+
+Substation {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+SubGeographicalRegion {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+Line {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+GeographicalRegion {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+PowerTransformer {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+ACLineSegment {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+Analog {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+RegisteredLoad {
+  style {
+    fill: "#fffbef"
+    shadow: true
+  }
+}
+
+
+
+MktConnectivityNode {
+  style {
+    fill: "#fffbef"
+    shadow: true
+  }
+}
+
+
+
+MarketParticipant {
+  style {
+    fill: "#fffbef"
+    shadow: true
+  }
+}
+
+
+
+MarketRole {
+  style {
+    fill: "#fffbef"
+    shadow: true
+  }
+}
+
+
+
+EnergyConsumer {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+
+ForecastDataSet -> Terminal: terminals
+
+
+ForecastDataSet -> TopologicalNode: topological_nodes
+
+
+ForecastDataSet -> CoordinateSystem: coordinate_systems
+
+
+ForecastDataSet -> UsagePoint: usage_points
+
+
+ForecastDataSet -> Substation: substations
+
+
+ForecastDataSet -> SubGeographicalRegion: sub_geographical_regions
+
+
+ForecastDataSet -> Line: lines
+
+
+ForecastDataSet -> GeographicalRegion: geographical_regions
+
+
+ForecastDataSet -> PowerTransformer: power_transformers
+
+
+ForecastDataSet -> ACLineSegment: ac_line_segments
+
+
+ForecastDataSet -> Analog: analogs
+
+
+ForecastDataSet -> RegisteredLoad: registered_loads
+
+
+ForecastDataSet -> MktConnectivityNode: mkt_connectivity_nodes
+
+
+ForecastDataSet -> MarketParticipant: market_participants
+
+
+ForecastDataSet -> MarketRole: market_roles
+
+
+ForecastDataSet -> EnergyConsumer: energy_consumers
+
+
+legend: "" {
+  style: {
+    fill: transparent
+    stroke: transparent
+  }
+  grid-rows: 3
+  grid-columns: 2
+  grid-gap: 10
+  near: bottom-right
+  iec61968_color: "" {
+    style: {
+      fill: "#d1e7c2"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec61968_text: "IEC61968 (Enterprise)" {
+    shape: text
+  }
+  iec61970_color: "" {
+    style: {
+      fill: "#eccfcb"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec61970_text: "IEC61970 (Grid)" {
+    shape: text
+  }
+  iec62325_color: "" {
+    style: {
+      fill: "#fffbef"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec62325_text: "IEC62325 (Market)" {
+    shape: text
+  }
+}
+----
+
+
+[cols="3,1,3,6",width=100%]
+|===
+| Name | Cardinality | Type | Description
+
+| <<conforms_to,`conforms_to`>>
+| 1
+| n/a
+| n/a
+
+| <<contact_point,`contact_point`>>
+| 1
+| n/a
+| n/a
+
+| <<identifier,`identifier`>>
+| 1
+| n/a
+| n/a
+
+| <<release_date,`release_date`>>
+| 1
+| n/a
+| n/a
+
+| <<version,`version`>>
+| 1
+| n/a
+| n/a
+
+| <<ac_line_segments,`ac_line_segments`>>
+| 1..*
+| xref::class/ACLineSegment.adoc[`ACLineSegment`]
+| +++All instances of ACLineSegments+++
+
+| <<analogs,`analogs`>>
+| 1..*
+| xref::class/Analog.adoc[`Analog`]
+| +++All instances of Analogs+++
+
+| <<coordinate_systems,`coordinate_systems`>>
+| 1..*
+| xref::class/CoordinateSystem.adoc[`CoordinateSystem`]
+| +++All instances of CoordinateSystems+++
+
+| <<energy_consumers,`energy_consumers`>>
+| 1..*
+| xref::class/EnergyConsumer.adoc[`EnergyConsumer`]
+| +++All instances of EnergyConsumers+++
+
+| <<geographical_regions,`geographical_regions`>>
+| 1..*
+| xref::class/GeographicalRegion.adoc[`GeographicalRegion`]
+| +++All instances of GeographicalRegions+++
+
+| <<lines,`lines`>>
+| 1..*
+| xref::class/Line.adoc[`Line`]
+| +++All instances of Lines+++
+
+| <<market_participants,`market_participants`>>
+| 1..*
+| xref::class/MarketParticipant.adoc[`MarketParticipant`]
+| +++All instances of MarketParticipants+++
+
+| <<market_roles,`market_roles`>>
+| 1..*
+| xref::class/MarketRole.adoc[`MarketRole`]
+| +++All instances of MarketRoles+++
+
+| <<mkt_connectivity_nodes,`mkt_connectivity_nodes`>>
+| 1..*
+| xref::class/MktConnectivityNode.adoc[`MktConnectivityNode`]
+| +++All instances of MktConnectivityNodes+++
+
+| <<power_transformers,`power_transformers`>>
+| 1..*
+| xref::class/PowerTransformer.adoc[`PowerTransformer`]
+| +++All instances of PowerTransformers+++
+
+| <<registered_loads,`registered_loads`>>
+| 1..*
+| xref::class/RegisteredLoad.adoc[`RegisteredLoad`]
+| +++All instances of RegisteredLoads+++
+
+| <<sub_geographical_regions,`sub_geographical_regions`>>
+| 1..*
+| xref::class/SubGeographicalRegion.adoc[`SubGeographicalRegion`]
+| +++All instances of SubGeographicalRegions+++
+
+| <<substations,`substations`>>
+| 1..*
+| xref::class/Substation.adoc[`Substation`]
+| +++All instances of Substations+++
+
+| <<terminals,`terminals`>>
+| 1..*
+| xref::class/Terminal.adoc[`Terminal`]
+| +++All instances of Terminals+++
+
+| <<topological_nodes,`topological_nodes`>>
+| 1..*
+| xref::class/TopologicalNode.adoc[`TopologicalNode`]
+| +++All instances of TopologicalNodes+++
+
+| <<usage_points,`usage_points`>>
+| 1..*
+| xref::class/UsagePoint.adoc[`UsagePoint`]
+| +++All instances of UsagePoints+++
+|===
+
+'''
+
+
+//[discrete]
+[#ac_line_segments]
+=== `ac_line_segments`
++++All instances of ACLineSegments+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.aCLineSegments`
+| Cardinality
+| 1..*
+| Type
+| xref::class/ACLineSegment.adoc[`ACLineSegment`]
+
+
+|===
+
+//[discrete]
+[#analogs]
+=== `analogs`
++++All instances of Analogs+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.analogs`
+| Cardinality
+| 1..*
+| Type
+| xref::class/Analog.adoc[`Analog`]
+
+
+|===
+
+//[discrete]
+[#conforms_to]
+=== `conforms_to`
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/conformsTo[`dct:conformsTo`]
+| Cardinality
+| 1
+| Type
+| n/a
+
+
+|===
+
+//[discrete]
+[#contact_point]
+=== `contact_point`
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/contactPoint[`dct:contactPoint`]
+| Cardinality
+| 1
+| Type
+| n/a
+
+
+|===
+
+//[discrete]
+[#coordinate_systems]
+=== `coordinate_systems`
++++All instances of CoordinateSystems+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.coordinateSystems`
+| Cardinality
+| 1..*
+| Type
+| xref::class/CoordinateSystem.adoc[`CoordinateSystem`]
+
+
+|===
+
+//[discrete]
+[#energy_consumers]
+=== `energy_consumers`
++++All instances of EnergyConsumers+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.energyConsumers`
+| Cardinality
+| 1..*
+| Type
+| xref::class/EnergyConsumer.adoc[`EnergyConsumer`]
+
+
+|===
+
+//[discrete]
+[#geographical_regions]
+=== `geographical_regions`
++++All instances of GeographicalRegions+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.geographicalRegions`
+| Cardinality
+| 1..*
+| Type
+| xref::class/GeographicalRegion.adoc[`GeographicalRegion`]
+
+
+|===
+
+//[discrete]
+[#identifier]
+=== `identifier`
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/identifier[`dct:identifier`]
+| Cardinality
+| 1
+| Type
+| n/a
+
+
+|===
+
+//[discrete]
+[#lines]
+=== `lines`
++++All instances of Lines+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.lines`
+| Cardinality
+| 1..*
+| Type
+| xref::class/Line.adoc[`Line`]
+
+
+|===
+
+//[discrete]
+[#market_participants]
+=== `market_participants`
++++All instances of MarketParticipants+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.marketParticipants`
+| Cardinality
+| 1..*
+| Type
+| xref::class/MarketParticipant.adoc[`MarketParticipant`]
+
+
+|===
+
+//[discrete]
+[#market_roles]
+=== `market_roles`
++++All instances of MarketRoles+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.marketRoles`
+| Cardinality
+| 1..*
+| Type
+| xref::class/MarketRole.adoc[`MarketRole`]
+
+
+|===
+
+//[discrete]
+[#mkt_connectivity_nodes]
+=== `mkt_connectivity_nodes`
++++All instances of MktConnectivityNodes+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.mktConnectivityNodes`
+| Cardinality
+| 1..*
+| Type
+| xref::class/MktConnectivityNode.adoc[`MktConnectivityNode`]
+
+
+|===
+
+//[discrete]
+[#power_transformers]
+=== `power_transformers`
++++All instances of PowerTransformers+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.powerTransformers`
+| Cardinality
+| 1..*
+| Type
+| xref::class/PowerTransformer.adoc[`PowerTransformer`]
+
+
+|===
+
+//[discrete]
+[#registered_loads]
+=== `registered_loads`
++++All instances of RegisteredLoads+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.registeredLoads`
+| Cardinality
+| 1..*
+| Type
+| xref::class/RegisteredLoad.adoc[`RegisteredLoad`]
+
+
+|===
+
+//[discrete]
+[#release_date]
+=== `release_date`
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/issued[`dct:issued`]
+| Cardinality
+| 1
+| Type
+| n/a
+
+
+|===
+
+//[discrete]
+[#sub_geographical_regions]
+=== `sub_geographical_regions`
++++All instances of SubGeographicalRegions+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.subGeographicalRegions`
+| Cardinality
+| 1..*
+| Type
+| xref::class/SubGeographicalRegion.adoc[`SubGeographicalRegion`]
+
+
+|===
+
+//[discrete]
+[#substations]
+=== `substations`
++++All instances of Substations+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.substations`
+| Cardinality
+| 1..*
+| Type
+| xref::class/Substation.adoc[`Substation`]
+
+
+|===
+
+//[discrete]
+[#terminals]
+=== `terminals`
++++All instances of Terminals+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.terminals`
+| Cardinality
+| 1..*
+| Type
+| xref::class/Terminal.adoc[`Terminal`]
+
+
+|===
+
+//[discrete]
+[#topological_nodes]
+=== `topological_nodes`
++++All instances of TopologicalNodes+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.topologicalNodes`
+| Cardinality
+| 1..*
+| Type
+| xref::class/TopologicalNode.adoc[`TopologicalNode`]
+
+
+|===
+
+//[discrete]
+[#usage_points]
+=== `usage_points`
++++All instances of UsagePoints+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.usagePoints`
+| Cardinality
+| 1..*
+| Type
+| xref::class/UsagePoint.adoc[`UsagePoint`]
+
+
+|===
+
+//[discrete]
+[#version]
+=== `version`
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://www.w3.org/2002/07/owl#versionInfo[`owl:versionInfo`]
+| Cardinality
+| 1
+| Type
+| n/a
+
+
+|===
+
+
