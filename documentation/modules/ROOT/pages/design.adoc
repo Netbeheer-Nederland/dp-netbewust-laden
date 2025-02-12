@@ -5,7 +5,7 @@ _Netbewust Laden_, alsmede de achterliggende architectuur en gemaakte keuzes.
 
 [NOTE]
 ====
-include::dp-netbewust-laden:partial$data_product.adoc[]
+include::partial$data_product.adoc[]
 ====
 
 == Reikwijdte
@@ -198,7 +198,7 @@ Operators_ (CPO).
 
 [NOTE]
 ====
-include::dp-netbewust-laden:partial$four_v.adoc[]
+include::partial$four_v.adoc[]
 ====
 
 [cols="1, 1"]
