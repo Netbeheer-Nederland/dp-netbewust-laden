@@ -649,6 +649,13 @@
                     },
                     "type": "array"
                 },
+                "active_power_limits": {
+                    "description": "All instances of ActivePowerLimits",
+                    "items": {
+                        "$ref": "#/$defs/ActivePowerLimit"
+                    },
+                    "type": "array"
+                },
                 "analogs": {
                     "description": "All instances of Analogs",
                     "items": {
@@ -705,6 +712,13 @@
                     "description": "All instances of MktConnectivityNodes",
                     "items": {
                         "$ref": "#/$defs/MktConnectivityNode"
+                    },
+                    "type": "array"
+                },
+                "operational_limit_sets": {
+                    "description": "All instances of OperationalLimitSets",
+                    "items": {
+                        "$ref": "#/$defs/OperationalLimitSet"
                     },
                     "type": "array"
                 },
@@ -777,6 +791,8 @@
                 "power_transformers",
                 "ac_line_segments",
                 "analogs",
+                "active_power_limits",
+                "operational_limit_sets",
                 "registered_loads",
                 "mkt_connectivity_nodes",
                 "market_participants",
@@ -2127,6 +2143,13 @@
             },
             "type": "array"
         },
+        "active_power_limits": {
+            "description": "All instances of ActivePowerLimits",
+            "items": {
+                "$ref": "#/$defs/ActivePowerLimit"
+            },
+            "type": "array"
+        },
         "analogs": {
             "description": "All instances of Analogs",
             "items": {
@@ -2183,6 +2206,13 @@
             "description": "All instances of MktConnectivityNodes",
             "items": {
                 "$ref": "#/$defs/MktConnectivityNode"
+            },
+            "type": "array"
+        },
+        "operational_limit_sets": {
+            "description": "All instances of OperationalLimitSets",
+            "items": {
+                "$ref": "#/$defs/OperationalLimitSet"
             },
             "type": "array"
         },
@@ -2255,6 +2285,8 @@
         "power_transformers",
         "ac_line_segments",
         "analogs",
+        "active_power_limits",
+        "operational_limit_sets",
         "registered_loads",
         "mkt_connectivity_nodes",
         "market_participants",
