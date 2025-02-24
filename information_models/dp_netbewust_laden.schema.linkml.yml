@@ -670,6 +670,20 @@ classes:
         range: Analog
         required: true
         inlined_as_list: true
+      active_power_limits:
+        description: All instances of ActivePowerLimits
+        slot_uri: this:ForecastDataSet.activePowerLimits
+        multivalued: true
+        range: ActivePowerLimit
+        required: true
+        inlined_as_list: true
+      operational_limit_sets:
+        description: All instances of OperationalLimitSets
+        slot_uri: this:ForecastDataSet.operationalLimitSets
+        multivalued: true
+        range: OperationalLimitSet
+        required: true
+        inlined_as_list: true
       registered_loads:
         description: All instances of RegisteredLoads
         slot_uri: this:ForecastDataSet.registeredLoads
