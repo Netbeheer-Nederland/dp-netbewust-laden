@@ -841,6 +841,15 @@ classes:
       or that are conductively connected through terminals.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     is_a: Equipment
+    attributes:
+      terminals:
+        slot_uri: cim:ConductingEquipment.Terminals
+        range: Terminal
+        required: false
+        multivalued: true
+        description: Conducting equipment have terminals that may be connected to
+          other conducting equipment terminals via connectivity nodes or topological
+          nodes.
     class_uri: cim:ConductingEquipment
   Terminal:
     description: An AC electrical connection point to a piece of conducting equipment.
