@@ -1180,7 +1180,8 @@ classes:
       crs_urn:
         description: "A Uniform Resource Name (URN) for the coordinate
           reference system\ \ (crs) used to define 'Location.PositionPoints'.
-          For this dataset, use _EPSG:4326_ (WGS 84) exclusively."
+          For this dataset, use _urn:ogc:def:crs:EPSG::4.3.2.6_ (WGS 84)
+          exclusively."
         slot_uri: cim:CoordinateSystem.crsUrn
         multivalued: false
         range: string
