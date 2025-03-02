@@ -52,6 +52,15 @@ ConductingEquipment {
 
 
 
+Terminal {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
 OperationalLimitSet {
   style {
     fill: "#eccfcb"
@@ -78,6 +87,9 @@ Location {
 }
 
 
+
+
+ConductingEquipment -> Terminal: terminals
 
 
 ConductingEquipment -> OperationalLimitSet: operational_limit_set
@@ -147,6 +159,11 @@ legend: "" {
 | https://w3id.org/linkml/String[`string`]
 | +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.+++
+
+| <<terminals,`terminals`>>
+| 0..*
+| xref::class/Terminal.adoc[`Terminal`]
+| +++Conducting equipment have terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.+++
 
 | <<description,`description`>>
 | 0..1
@@ -249,6 +266,23 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 
 | Inherited from
 | xref::class/Equipment.adoc[`Equipment`]
+
+
+|===
+
+//[discrete]
+[#terminals]
+=== `terminals`
++++Conducting equipment have terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:ConductingEquipment.Terminals`
+| Cardinality
+| 0..*
+| Type
+| xref::class/Terminal.adoc[`Terminal`]
 
 
 |===

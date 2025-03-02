@@ -53,6 +53,15 @@ ACLineSegment {
 
 
 
+Terminal {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
 OperationalLimitSet {
   style {
     fill: "#eccfcb"
@@ -79,6 +88,9 @@ Location {
 }
 
 
+
+
+ACLineSegment -> Terminal: terminals
 
 
 ACLineSegment -> OperationalLimitSet: operational_limit_set
@@ -163,6 +175,11 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | 0..*
 | xref::class/OperationalLimitSet.adoc[`OperationalLimitSet`]
 | +++The operational limit sets associated with this equipment.+++
+
+| <<terminals,`terminals`>>
+| 0..*
+| xref::class/Terminal.adoc[`Terminal`]
+| +++Conducting equipment have terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.+++
 
 | <<usage_points,`usage_points`>>
 | 0..*
@@ -250,6 +267,26 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 
 | Inherited from
 | xref::class/Equipment.adoc[`Equipment`]
+
+
+|===
+
+//[discrete]
+[#terminals]
+=== `terminals`
++++Conducting equipment have terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:ConductingEquipment.Terminals`
+| Cardinality
+| 0..*
+| Type
+| xref::class/Terminal.adoc[`Terminal`]
+
+| Inherited from
+| xref::class/ConductingEquipment.adoc[`ConductingEquipment`]
 
 
 |===

@@ -78,6 +78,16 @@
                         "null"
                     ]
                 },
+                "terminals": {
+                    "description": "Conducting equipment have terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "usage_points": {
                     "description": "All usage points connected to the electrical grid through this equipment.",
                     "items": {
@@ -286,6 +296,16 @@
                         "null"
                     ]
                 },
+                "terminals": {
+                    "description": "Conducting equipment have terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "usage_points": {
                     "description": "All usage points connected to the electrical grid through this equipment.",
                     "items": {
@@ -333,6 +353,16 @@
                     "description": "The operational limit sets associated with this equipment.",
                     "items": {
                         "$ref": "#/$defs/OperationalLimitSet"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "terminals": {
+                    "description": "Conducting equipment have terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.",
+                    "items": {
+                        "type": "string"
                     },
                     "type": [
                         "array",
@@ -474,6 +504,16 @@
                         "null"
                     ]
                 },
+                "terminals": {
+                    "description": "Conducting equipment have terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "usage_points": {
                     "description": "All usage points connected to the electrical grid through this equipment.",
                     "items": {
@@ -521,6 +561,16 @@
                     "description": "The operational limit sets associated with this equipment.",
                     "items": {
                         "$ref": "#/$defs/OperationalLimitSet"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "terminals": {
+                    "description": "Conducting equipment have terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.",
+                    "items": {
+                        "type": "string"
                     },
                     "type": [
                         "array",
@@ -1471,6 +1521,16 @@
                         "$ref": "#/$defs/PowerTransformerEnd"
                     },
                     "type": "array"
+                },
+                "terminals": {
+                    "description": "Conducting equipment have terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "usage_points": {
                     "description": "All usage points connected to the electrical grid through this equipment.",

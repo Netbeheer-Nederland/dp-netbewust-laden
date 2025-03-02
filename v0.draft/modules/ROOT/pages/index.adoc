@@ -30,65 +30,97 @@ vars: {
   }
 }
 
-ForecastDataSet.class: dataset
-GeographicalRegion.class: enterprise
-Line.class: grid
-ACLineSegment.class: grid
-Analog.class: grid
-7.class: empty
-
 1.class: empty
-SubGeographicalRegion.class: enterprise
-Substation.class: grid
-PowerTransformer.class: grid
-OperationalLimitSet.class: grid
-9.class: empty
-
 2.class: empty
-10.class: empty
-11.class: empty
-TopologicalNode.class: grid
-12.class: empty
-13.class: empty
+cim\:ActivePowerLimit.class: grid
+cim\:OperationalLimitSet.class: grid
+cim\:Terminal_01: {
+  class: grid
+  label: "cim:Terminal"
+}
+cim\:Analog.class: grid
 
 3.class: empty
-RegisteredLoad.class: market
-MktConnectivityNode.class: market
-Terminal.class: grid
+4.class: empty
+5.class: empty
+6.class: empty
+cim\:PowerTransformerEnd_01: {
+  class: grid
+  label: "cim:PowerTransformerEnd"
+}
+7.class: empty
+
+ForecastDataSet.class: dataset
+cim\:GeographicalRegion.class: enterprise
+cim\:SubGeographicalRegion.class: enterprise
+cim\:Substation.class: grid
+cim\:PowerTransformer.class: grid
+8.class: empty
+
+9.class: empty
+10.class: empty
+11.class: empty
+12.class: empty
+cim\:PowerTransformerEnd_02: {
+  class: grid
+  label: "cim:PowerTransformerEnd"
+}
+13.class: empty
+
 14.class: empty
 15.class: empty
+16.class: empty
+17.class: empty
+cim\:Terminal_02: {
+  class: grid
+  label: "cim:Terminal"
+}
+18.class: empty
 
-4.class: empty
-MarketParticipant.class: market
-UsagePoint.class: enterprise
-EnergyConsumer.class: grid
-Location.class: enterprise
 19.class: empty
-
-5.class: empty
-MarketRole.class: market
 20.class: empty
 21.class: empty
 22.class: empty
+cim\:TopologicalNode.class: grid
 23.class: empty
 
-ForecastDataSet -> GeographicalRegion
-GeographicalRegion -> SubGeographicalRegion
-SubGeographicalRegion -> Substation
-SubGeographicalRegion -> Line
-Substation -> PowerTransformer
-Line -> ACLineSegment
-PowerTransformer -> Analog
-PowerTransformer -> OperationalLimitSet
-PowerTransformer -> TopologicalNode
-TopologicalNode -> Terminal
-Terminal -> EnergyConsumer
-EnergyConsumer -> Location
-EnergyConsumer -> UsagePoint
-Terminal -> MktConnectivityNode
-MktConnectivityNode -> RegisteredLoad
-RegisteredLoad -> MarketParticipant
-MarketParticipant -> MarketRole
+24.class: empty
+cim\:MarketParticipant.class: market
+cim\:RegisteredLoad.class: market
+cim\:MktConnectivityNode.class: market
+cim\:Terminal_03: {
+  class: grid
+  label: "cim:Terminal"
+}
+25.class: empty
+
+26.class: empty
+cim\:MarketRole.class: market
+27.class: empty
+cim\:UsagePoint.class: enterprise
+cim\:EnergyConsumer.class: grid
+cim\:Location.class: enterprise
+
+ForecastDataSet -> cim\:GeographicalRegion: "geographical_regions"
+cim\:GeographicalRegion -> cim\:SubGeographicalRegion: "regions"
+cim\:SubGeographicalRegion -> cim\:Substation: "substations"
+cim\:Substation -> cim\:PowerTransformer: "equipments"
+cim\:PowerTransformer -> cim\:PowerTransformerEnd_01: "power_transformer_end"
+cim\:PowerTransformerEnd_01 -> cim\:Terminal_01: "terminal"
+cim\:Terminal_01 -> cim\:OperationalLimitSet: "operational_limit_set"
+cim\:Terminal_01 -> cim\:Analog: "measurements"
+cim\:OperationalLimitSet -> cim\:ActivePowerLimit: "operational_limit"
+cim\:PowerTransformerEnd_02 -> cim\:Terminal_02: "terminal"
+cim\:Terminal_02 -> cim\:TopologicalNode: "topological_nodes"
+cim\:PowerTransformer -> cim\:PowerTransformerEnd_02: "power_transformer_end"
+cim\:TopologicalNode -> cim\:Terminal_03: "terminal"
+cim\:Terminal_03 -> cim\:EnergyConsumer: "conducting_equipment"
+cim\:EnergyConsumer -> cim\:Location: "location"
+cim\:EnergyConsumer -> cim\:UsagePoint: "usage_points"
+cim\:Terminal_03 -> cim\:MktConnectivityNode: "connectivity_node"
+cim\:MktConnectivityNode -> cim\:RegisteredLoad: "registered_resource"
+cim\:RegisteredLoad -> cim\:MarketParticipant: "market_participant"
+cim\:MarketParticipant -> cim\:MarketRole: "market_roles"
 
 legend: "" {
   style: {
