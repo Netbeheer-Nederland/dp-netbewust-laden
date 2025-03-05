@@ -43,7 +43,7 @@ vars: {
 }
 
 Gebruiker -> EDSN: 1. Zoek dataproduct op EDSN Dataportaal
-EDSN -> Gebruiker: 2. Vindt dataproduct
+EDSN -> Gebruiker: 2. Vind dataproduct
 Gebruiker -> Netbeheerder: 3. Vraag dataset bij individuele netbeheerder
 Netbeheerder -> Gebruiker: 4. Lever dataset
 Gebruiker -> Gebruiker: 5. Verwerk dataset

@@ -40,7 +40,7 @@
 | <<time_stamp,`time_stamp`>>
 | 1
 | https://w3id.org/linkml/Datetime[`datetime`]
-| +++The time when the value was last updated.+++
+| +++The time when the value was last updated. Formatted as ISO8601, serialised as ECMAScript. Example _2024-11-22T13:30:00Z_.+++
 
 | <<m_rid,`m_rid`>>
 | 1
@@ -101,7 +101,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 //[discrete]
 [#time_stamp]
 === `time_stamp`
-+++The time when the value was last updated.+++
++++The time when the value was last updated. Formatted as ISO8601, serialised as ECMAScript. Example _2024-11-22T13:30:00Z_.+++
 
 [cols="h,4",width=65%]
 |===
