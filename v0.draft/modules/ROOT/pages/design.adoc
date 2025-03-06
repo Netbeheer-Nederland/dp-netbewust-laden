@@ -75,23 +75,23 @@ grid-columns: 4
 vertical-gap: 80
 horizontal-gap: 160
 
-"Netbeheerder".class: business
-Consumer.class: business
+"Netbeheerder".class: [noun; business]
+Consumer.class: [noun; business]
 1.class: empty
 2.class: empty
 
 3.class: empty
-Extract.class: business
-Transform.class: business
-Load.class: business
+Extract.class: [verb; business]
+Transform.class: [verb; business]
+Load.class: [verb; business]
 
-"HTTP Server".class: application
-"Data Product".class: application
-"EDSN Dataportaal".class: application
+"HTTP Server".class: [noun; application]
+"Data Product".class: [noun; application]
+"EDSN Dataportaal".class: [noun; application]
 4.class: empty
 
 5.class: empty
-"JSON File".class: technology
+"JSON File".class: [artifact; technology]
 
 Extract -> Transform: "triggers"
 Transform -> Load: "triggers"
@@ -152,7 +152,6 @@ legend: "" {
 classes: {
   *: {
     style: {
-      border-radius: 8
       shadow: true
     }
   }
@@ -163,6 +162,13 @@ classes: {
       stroke-width: 0
     }
   }
+  verb: {
+    style: {border-radius: 30}
+  }
+  noun: {
+    style: {border-radius: 4}
+  }
+  artifact: {shape: page}
   business: {
     style: {
       fill: "#ffffaf"
@@ -179,6 +185,7 @@ classes: {
     }
   }
 }
+
 ----
 
 * de structuur (logisch model) van de dataset behorende bij het dataproduct is
