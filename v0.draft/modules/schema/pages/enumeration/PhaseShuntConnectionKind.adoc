@@ -47,3 +47,8 @@
 | `cim:PhaseShuntConnectionKind.Yn`
 | n/a
 |===
+
+== Used by
+
+
+This enumeration is not used by any classes as the range of a slot.

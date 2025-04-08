@@ -108,14 +108,16 @@ legend: "" {
 ----
 
 
-[cols="3,1,3,6",width=100%]
+[cols="1,1,2,1",width=100%]
 |===
-| Name | Cardinality | Type | Description
+| Name | Type | Description | Inherited from
 
 | <<name_type,`name_type`>>
-| 1
-| xref::class/NameType.adoc[`NameType`]
+//| [[slots_table.name_type]]<<name_type,`name_type`>>
+| 1 +
+xref::class/NameType.adoc[`NameType`]
 | +++Type of this name.+++
+| _n/a_
 |===
 
 '''
@@ -125,6 +127,7 @@ legend: "" {
 [#name_type]
 === `name_type`
 +++Type of this name.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -138,4 +141,18 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.name_type,&#10548;>>
+--
+////
 
+
+
+
+
+== Used by
+
+
+This class is not used by any other classes as the range of a slot.

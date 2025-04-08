@@ -133,35 +133,44 @@ legend: "" {
 ----
 
 
-[cols="3,1,3,6",width=100%]
+[cols="1,1,2,1",width=100%]
 |===
-| Name | Cardinality | Type | Description
-
-| <<m_rid,`m_rid`>>
-| 1
-| https://w3id.org/linkml/String[`string`]
-| +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.
-For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.+++
+| Name | Type | Description | Inherited from
 
 | <<coordinate_system,`coordinate_system`>>
-| 0..1
-| xref::class/CoordinateSystem.adoc[`CoordinateSystem`]
+//| [[slots_table.coordinate_system]]<<coordinate_system,`coordinate_system`>>
+| 0..1 +
+xref::class/CoordinateSystem.adoc[`CoordinateSystem`]
 | +++Coordinate system used to describe position points of this location.+++
+| _n/a_
 
 | <<main_address,`main_address`>>
-| 0..1
-| xref::class/StreetAddress.adoc[`StreetAddress`]
+//| [[slots_table.main_address]]<<main_address,`main_address`>>
+| 0..1 +
+xref::class/StreetAddress.adoc[`StreetAddress`]
 | +++Main address of the location.+++
+| _n/a_
 
 | <<position_points,`position_points`>>
-| 0..*
-| xref::class/PositionPoint.adoc[`PositionPoint`]
+//| [[slots_table.position_points]]<<position_points,`position_points`>>
+| 0..* +
+xref::class/PositionPoint.adoc[`PositionPoint`]
 | +++Sequence of position points describing this location, expressed in coordinate system 'Location.CoordinateSystem'.+++
+| _n/a_
 
 | <<description,`description`>>
-| 0..1
-| https://w3id.org/linkml/String[`string`]
-| +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.+++
+//| [[slots_table.description]]<<description,`description`>>
+| 0..1 +
+https://w3id.org/linkml/String[`string`]
+| +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to...+++
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+
+| <<m_rid,`m_rid`>>
+//| [[slots_table.m_rid]]<<m_rid,`m_rid`>>
+| 1 +
+https://w3id.org/linkml/String[`string`]
+| +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is...+++
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
 |===
 
 '''
@@ -171,6 +180,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 [#coordinate_system]
 === `coordinate_system`
 +++Coordinate system used to describe position points of this location.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -184,10 +194,19 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.coordinate_system,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#description]
 === `description`
 +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -204,11 +223,20 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.description,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#m_rid]
 === `m_rid`
 +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -225,10 +253,19 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.m_rid,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#main_address]
 === `main_address`
 +++Main address of the location.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -242,10 +279,19 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.main_address,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#position_points]
 === `position_points`
 +++Sequence of position points describing this location, expressed in coordinate system 'Location.CoordinateSystem'.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -259,4 +305,28 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.position_points,&#10548;>>
+--
+////
+
+
+
+
+
+== Used by
+
+
+[cols="1,1",width=65%]
+|===
+| Source class | Slot name
+
+
+
+| xref::class/PowerSystemResource.adoc[`PowerSystemResource`] | xref::class/PowerSystemResource.adoc#location[`location`]
+
+
+|===
 

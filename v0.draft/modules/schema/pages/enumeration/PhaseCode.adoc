@@ -133,3 +133,8 @@ The integer values are from IEC 61968-9 to support revenue metering applications
 | `cim:PhaseCode.XYN`
 | n/a
 |===
+
+== Used by
+
+
+This enumeration is not used by any classes as the range of a slot.

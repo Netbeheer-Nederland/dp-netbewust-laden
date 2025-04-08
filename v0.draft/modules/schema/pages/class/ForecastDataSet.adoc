@@ -309,124 +309,170 @@ legend: "" {
 ----
 
 
-[cols="3,1,3,6",width=100%]
+[cols="1,1,2,1",width=100%]
 |===
-| Name | Cardinality | Type | Description
-
-| <<conforms_to,`conforms_to`>>
-| 1
-| n/a
-| n/a
-
-| <<contact_point,`contact_point`>>
-| 1
-| n/a
-| n/a
-
-| <<identifier,`identifier`>>
-| 1
-| n/a
-| n/a
-
-| <<release_date,`release_date`>>
-| 1
-| n/a
-| n/a
-
-| <<version,`version`>>
-| 1
-| n/a
-| n/a
+| Name | Type | Description | Inherited from
 
 | <<ac_line_segments,`ac_line_segments`>>
-| 1..*
-| xref::class/ACLineSegment.adoc[`ACLineSegment`]
+//| [[slots_table.ac_line_segments]]<<ac_line_segments,`ac_line_segments`>>
+| 1..* +
+xref::class/ACLineSegment.adoc[`ACLineSegment`]
 | +++All instances of ACLineSegments+++
+| _n/a_
 
 | <<active_power_limits,`active_power_limits`>>
-| 1..*
-| xref::class/ActivePowerLimit.adoc[`ActivePowerLimit`]
+//| [[slots_table.active_power_limits]]<<active_power_limits,`active_power_limits`>>
+| 1..* +
+xref::class/ActivePowerLimit.adoc[`ActivePowerLimit`]
 | +++All instances of ActivePowerLimits+++
+| _n/a_
 
 | <<analogs,`analogs`>>
-| 1..*
-| xref::class/Analog.adoc[`Analog`]
+//| [[slots_table.analogs]]<<analogs,`analogs`>>
+| 1..* +
+xref::class/Analog.adoc[`Analog`]
 | +++All instances of Analogs+++
+| _n/a_
+
+| <<conforms_to,`conforms_to`>>
+//| [[slots_table.conforms_to]]<<conforms_to,`conforms_to`>>
+| 1 +
+https://w3id.org/linkml/String[`string`]
+| _n/a_
+| _n/a_
+
+| <<contact_point,`contact_point`>>
+//| [[slots_table.contact_point]]<<contact_point,`contact_point`>>
+| 1 +
+https://w3id.org/linkml/String[`string`]
+| _n/a_
+| _n/a_
 
 | <<coordinate_systems,`coordinate_systems`>>
-| 1..*
-| xref::class/CoordinateSystem.adoc[`CoordinateSystem`]
+//| [[slots_table.coordinate_systems]]<<coordinate_systems,`coordinate_systems`>>
+| 1..* +
+xref::class/CoordinateSystem.adoc[`CoordinateSystem`]
 | +++All instances of CoordinateSystems+++
+| _n/a_
 
 | <<energy_consumers,`energy_consumers`>>
-| 1..*
-| xref::class/EnergyConsumer.adoc[`EnergyConsumer`]
+//| [[slots_table.energy_consumers]]<<energy_consumers,`energy_consumers`>>
+| 1..* +
+xref::class/EnergyConsumer.adoc[`EnergyConsumer`]
 | +++All instances of EnergyConsumers+++
+| _n/a_
 
 | <<geographical_regions,`geographical_regions`>>
-| 1..*
-| xref::class/GeographicalRegion.adoc[`GeographicalRegion`]
+//| [[slots_table.geographical_regions]]<<geographical_regions,`geographical_regions`>>
+| 1..* +
+xref::class/GeographicalRegion.adoc[`GeographicalRegion`]
 | +++All instances of GeographicalRegions+++
+| _n/a_
+
+| <<identifier,`identifier`>>
+//| [[slots_table.identifier]]<<identifier,`identifier`>>
+| 1 +
+https://w3id.org/linkml/String[`string`]
+| _n/a_
+| _n/a_
 
 | <<lines,`lines`>>
-| 1..*
-| xref::class/Line.adoc[`Line`]
+//| [[slots_table.lines]]<<lines,`lines`>>
+| 1..* +
+xref::class/Line.adoc[`Line`]
 | +++All instances of Lines+++
+| _n/a_
 
 | <<market_participants,`market_participants`>>
-| 1..*
-| xref::class/MarketParticipant.adoc[`MarketParticipant`]
+//| [[slots_table.market_participants]]<<market_participants,`market_participants`>>
+| 1..* +
+xref::class/MarketParticipant.adoc[`MarketParticipant`]
 | +++All instances of MarketParticipants+++
+| _n/a_
 
 | <<market_roles,`market_roles`>>
-| 1..*
-| xref::class/MarketRole.adoc[`MarketRole`]
+//| [[slots_table.market_roles]]<<market_roles,`market_roles`>>
+| 1..* +
+xref::class/MarketRole.adoc[`MarketRole`]
 | +++All instances of MarketRoles+++
+| _n/a_
 
 | <<mkt_connectivity_nodes,`mkt_connectivity_nodes`>>
-| 1..*
-| xref::class/MktConnectivityNode.adoc[`MktConnectivityNode`]
+//| [[slots_table.mkt_connectivity_nodes]]<<mkt_connectivity_nodes,`mkt_connectivity_nodes`>>
+| 1..* +
+xref::class/MktConnectivityNode.adoc[`MktConnectivityNode`]
 | +++All instances of MktConnectivityNodes+++
+| _n/a_
 
 | <<operational_limit_sets,`operational_limit_sets`>>
-| 1..*
-| xref::class/OperationalLimitSet.adoc[`OperationalLimitSet`]
+//| [[slots_table.operational_limit_sets]]<<operational_limit_sets,`operational_limit_sets`>>
+| 1..* +
+xref::class/OperationalLimitSet.adoc[`OperationalLimitSet`]
 | +++All instances of OperationalLimitSets+++
+| _n/a_
 
 | <<power_transformers,`power_transformers`>>
-| 1..*
-| xref::class/PowerTransformer.adoc[`PowerTransformer`]
+//| [[slots_table.power_transformers]]<<power_transformers,`power_transformers`>>
+| 1..* +
+xref::class/PowerTransformer.adoc[`PowerTransformer`]
 | +++All instances of PowerTransformers+++
+| _n/a_
 
 | <<registered_loads,`registered_loads`>>
-| 1..*
-| xref::class/RegisteredLoad.adoc[`RegisteredLoad`]
+//| [[slots_table.registered_loads]]<<registered_loads,`registered_loads`>>
+| 1..* +
+xref::class/RegisteredLoad.adoc[`RegisteredLoad`]
 | +++All instances of RegisteredLoads+++
+| _n/a_
+
+| <<release_date,`release_date`>>
+//| [[slots_table.release_date]]<<release_date,`release_date`>>
+| 1 +
+https://w3id.org/linkml/String[`string`]
+| _n/a_
+| _n/a_
 
 | <<sub_geographical_regions,`sub_geographical_regions`>>
-| 1..*
-| xref::class/SubGeographicalRegion.adoc[`SubGeographicalRegion`]
+//| [[slots_table.sub_geographical_regions]]<<sub_geographical_regions,`sub_geographical_regions`>>
+| 1..* +
+xref::class/SubGeographicalRegion.adoc[`SubGeographicalRegion`]
 | +++All instances of SubGeographicalRegions+++
+| _n/a_
 
 | <<substations,`substations`>>
-| 1..*
-| xref::class/Substation.adoc[`Substation`]
+//| [[slots_table.substations]]<<substations,`substations`>>
+| 1..* +
+xref::class/Substation.adoc[`Substation`]
 | +++All instances of Substations+++
+| _n/a_
 
 | <<terminals,`terminals`>>
-| 1..*
-| xref::class/Terminal.adoc[`Terminal`]
+//| [[slots_table.terminals]]<<terminals,`terminals`>>
+| 1..* +
+xref::class/Terminal.adoc[`Terminal`]
 | +++All instances of Terminals+++
+| _n/a_
 
 | <<topological_nodes,`topological_nodes`>>
-| 1..*
-| xref::class/TopologicalNode.adoc[`TopologicalNode`]
+//| [[slots_table.topological_nodes]]<<topological_nodes,`topological_nodes`>>
+| 1..* +
+xref::class/TopologicalNode.adoc[`TopologicalNode`]
 | +++All instances of TopologicalNodes+++
+| _n/a_
 
 | <<usage_points,`usage_points`>>
-| 1..*
-| xref::class/UsagePoint.adoc[`UsagePoint`]
+//| [[slots_table.usage_points]]<<usage_points,`usage_points`>>
+| 1..* +
+xref::class/UsagePoint.adoc[`UsagePoint`]
 | +++All instances of UsagePoints+++
+| _n/a_
+
+| <<version,`version`>>
+//| [[slots_table.version]]<<version,`version`>>
+| 1 +
+https://w3id.org/linkml/String[`string`]
+| _n/a_
+| _n/a_
 |===
 
 '''
@@ -436,6 +482,7 @@ legend: "" {
 [#ac_line_segments]
 === `ac_line_segments`
 +++All instances of ACLineSegments+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -449,10 +496,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.ac_line_segments,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#active_power_limits]
 === `active_power_limits`
 +++All instances of ActivePowerLimits+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -466,10 +522,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.active_power_limits,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#analogs]
 === `analogs`
 +++All instances of Analogs+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -483,9 +548,18 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.analogs,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#conforms_to]
 === `conforms_to`
+
 
 
 [cols="h,4",width=65%]
@@ -495,14 +569,23 @@ legend: "" {
 | Cardinality
 | 1
 | Type
-| n/a
+| https://w3id.org/linkml/String[`string`]
 
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.conforms_to,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#contact_point]
 === `contact_point`
+
 
 
 [cols="h,4",width=65%]
@@ -512,15 +595,24 @@ legend: "" {
 | Cardinality
 | 1
 | Type
-| n/a
+| https://w3id.org/linkml/String[`string`]
 
 
 |===
+
+////
+[.text-left]
+--
+<<slots_table.contact_point,&#10548;>>
+--
+////
+
 
 //[discrete]
 [#coordinate_systems]
 === `coordinate_systems`
 +++All instances of CoordinateSystems+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -534,10 +626,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.coordinate_systems,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#energy_consumers]
 === `energy_consumers`
 +++All instances of EnergyConsumers+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -551,10 +652,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.energy_consumers,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#geographical_regions]
 === `geographical_regions`
 +++All instances of GeographicalRegions+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -568,9 +678,18 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.geographical_regions,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#identifier]
 === `identifier`
+
 
 
 [cols="h,4",width=65%]
@@ -580,15 +699,24 @@ legend: "" {
 | Cardinality
 | 1
 | Type
-| n/a
+| https://w3id.org/linkml/String[`string`]
 
 
 |===
+
+////
+[.text-left]
+--
+<<slots_table.identifier,&#10548;>>
+--
+////
+
 
 //[discrete]
 [#lines]
 === `lines`
 +++All instances of Lines+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -602,10 +730,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.lines,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#market_participants]
 === `market_participants`
 +++All instances of MarketParticipants+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -619,10 +756,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.market_participants,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#market_roles]
 === `market_roles`
 +++All instances of MarketRoles+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -636,10 +782,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.market_roles,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#mkt_connectivity_nodes]
 === `mkt_connectivity_nodes`
 +++All instances of MktConnectivityNodes+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -653,10 +808,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.mkt_connectivity_nodes,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#operational_limit_sets]
 === `operational_limit_sets`
 +++All instances of OperationalLimitSets+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -670,10 +834,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.operational_limit_sets,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#power_transformers]
 === `power_transformers`
 +++All instances of PowerTransformers+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -687,10 +860,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.power_transformers,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#registered_loads]
 === `registered_loads`
 +++All instances of RegisteredLoads+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -704,9 +886,18 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.registered_loads,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#release_date]
 === `release_date`
+
 
 
 [cols="h,4",width=65%]
@@ -716,15 +907,24 @@ legend: "" {
 | Cardinality
 | 1
 | Type
-| n/a
+| https://w3id.org/linkml/String[`string`]
 
 
 |===
+
+////
+[.text-left]
+--
+<<slots_table.release_date,&#10548;>>
+--
+////
+
 
 //[discrete]
 [#sub_geographical_regions]
 === `sub_geographical_regions`
 +++All instances of SubGeographicalRegions+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -738,10 +938,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.sub_geographical_regions,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#substations]
 === `substations`
 +++All instances of Substations+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -755,10 +964,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.substations,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#terminals]
 === `terminals`
 +++All instances of Terminals+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -772,10 +990,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.terminals,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#topological_nodes]
 === `topological_nodes`
 +++All instances of TopologicalNodes+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -789,10 +1016,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.topological_nodes,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#usage_points]
 === `usage_points`
 +++All instances of UsagePoints+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -806,9 +1042,18 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.usage_points,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#version]
 === `version`
+
 
 
 [cols="h,4",width=65%]
@@ -818,9 +1063,23 @@ legend: "" {
 | Cardinality
 | 1
 | Type
-| n/a
+| https://w3id.org/linkml/String[`string`]
 
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.version,&#10548;>>
+--
+////
 
+
+
+
+
+== Used by
+
+
+This class is not used by any other classes as the range of a slot.

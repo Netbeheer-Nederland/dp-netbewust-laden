@@ -109,25 +109,30 @@ legend: "" {
 ----
 
 
-[cols="3,1,3,6",width=100%]
+[cols="1,1,2,1",width=100%]
 |===
-| Name | Cardinality | Type | Description
-
-| <<m_rid,`m_rid`>>
-| 1
-| https://w3id.org/linkml/String[`string`]
-| +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.
-For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.+++
+| Name | Type | Description | Inherited from
 
 | <<operational_limit_value,`operational_limit_value`>>
-| 0..*
-| xref::class/OperationalLimit.adoc[`OperationalLimit`]
+//| [[slots_table.operational_limit_value]]<<operational_limit_value,`operational_limit_value`>>
+| 0..* +
+xref::class/OperationalLimit.adoc[`OperationalLimit`]
 | +++Values of equipment limits.+++
+| _n/a_
 
 | <<description,`description`>>
-| 0..1
-| https://w3id.org/linkml/String[`string`]
-| +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.+++
+//| [[slots_table.description]]<<description,`description`>>
+| 0..1 +
+https://w3id.org/linkml/String[`string`]
+| +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to...+++
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+
+| <<m_rid,`m_rid`>>
+//| [[slots_table.m_rid]]<<m_rid,`m_rid`>>
+| 1 +
+https://w3id.org/linkml/String[`string`]
+| +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is...+++
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
 |===
 
 '''
@@ -137,6 +142,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 [#description]
 === `description`
 +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -153,11 +159,20 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.description,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#m_rid]
 === `m_rid`
 +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -174,10 +189,19 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.m_rid,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#operational_limit_value]
 === `operational_limit_value`
 +++Values of equipment limits.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -191,4 +215,36 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.operational_limit_value,&#10548;>>
+--
+////
+
+
+
+
+
+== Used by
+
+
+[cols="1,1",width=65%]
+|===
+| Source class | Slot name
+
+
+
+| xref::class/ACDCTerminal.adoc[`ACDCTerminal`] | xref::class/ACDCTerminal.adoc#operational_limit_set[`operational_limit_set`]
+
+
+
+| xref::class/Equipment.adoc[`Equipment`] | xref::class/Equipment.adoc#operational_limit_set[`operational_limit_set`]
+
+
+
+| xref::class/ForecastDataSet.adoc[`ForecastDataSet`] | xref::class/ForecastDataSet.adoc#operational_limit_sets[`operational_limit_sets`]
+
+
+|===
 

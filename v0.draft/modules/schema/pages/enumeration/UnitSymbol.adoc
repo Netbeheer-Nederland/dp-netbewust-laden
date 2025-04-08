@@ -595,3 +595,22 @@ The integer values are used for harmonization with IEC 61850.+++
 | `cim:UnitSymbol.WPerW`
 | n/a
 |===
+
+== Used by
+
+
+[cols="1,1",width=65%]
+|===
+| Source class | Slot name
+
+
+
+| xref::class/ActivePower.adoc[`ActivePower`] | xref::class/ActivePower.adoc#unit[`unit`]
+
+
+
+| xref::class/Measurement.adoc[`Measurement`] | xref::class/Measurement.adoc#unit_symbol[`unit_symbol`]
+
+
+|===
+
