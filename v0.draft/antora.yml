@@ -1,0 +1,6 @@
+name: dp-netbewust-laden
+version: v0.draft
+title: Netbewust Laden
+nav:
+- modules/ROOT/nav.adoc
+- modules/schema/nav.adoc

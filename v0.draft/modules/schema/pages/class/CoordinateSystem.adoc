@@ -1,0 +1,168 @@
+= `CoordinateSystem`
+:toclevels: 4
+
+
++++Coordinate reference system.+++
+
+
+[cols="h,3",width=65%]
+|===
+| Type
+| Class
+
+| URI
+| `cim:CoordinateSystem`
+
+
+| CIM standard (perspective)
+| IEC61968 (Enterprise)
+
+
+
+|===
+
+== Class hierarchy
+* xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+** *`CoordinateSystem`*
+
+
+== Slots
+
+
+
+
+[cols="1,1,2,1",width=100%]
+|===
+| Name | Type | Description | Inherited from
+
+| <<crs_urn,`crs_urn`>>
+//| [[slots_table.crs_urn]]<<crs_urn,`crs_urn`>>
+| 1 +
+https://w3id.org/linkml/String[`string`]
+| +++A Uniform Resource Name (URN) for the coordinate reference system  (crs) used to define 'Location.PositionPoints'. For this...+++
+| _n/a_
+
+| <<description,`description`>>
+//| [[slots_table.description]]<<description,`description`>>
+| 0..1 +
+https://w3id.org/linkml/String[`string`]
+| +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to...+++
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+
+| <<m_rid,`m_rid`>>
+//| [[slots_table.m_rid]]<<m_rid,`m_rid`>>
+| 1 +
+https://w3id.org/linkml/String[`string`]
+| +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is...+++
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+|===
+
+'''
+
+
+//[discrete]
+[#crs_urn]
+=== `crs_urn`
++++A Uniform Resource Name (URN) for the coordinate reference system  (crs) used to define 'Location.PositionPoints'. For this dataset, use _urn:ogc:def:crs:EPSG::4.3.2.6_ (WGS 84) exclusively.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:CoordinateSystem.crsUrn`
+| Cardinality
+| 1
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.crs_urn,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#description]
+=== `description`
++++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:IdentifiedObject.description`
+| Cardinality
+| 0..1
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+| Inherited from
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.description,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#m_rid]
+=== `m_rid`
++++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.
+For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:IdentifiedObject.mRID`
+| Cardinality
+| 1
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+| Inherited from
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.m_rid,&#10548;>>
+--
+////
+
+
+
+
+
+== Used by
+
+
+[cols="1,1",width=65%]
+|===
+| Source class | Slot name
+
+
+
+| xref::class/ForecastDataSet.adoc[`ForecastDataSet`] | xref::class/ForecastDataSet.adoc#coordinate_systems[`coordinate_systems`]
+
+
+
+| xref::class/Location.adoc[`Location`] | xref::class/Location.adoc#coordinate_system[`coordinate_system`]
+
+
+|===
+

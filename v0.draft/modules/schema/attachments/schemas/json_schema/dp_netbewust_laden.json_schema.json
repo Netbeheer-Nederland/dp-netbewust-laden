@@ -1,0 +1,2359 @@
+{
+    "$defs": {
+        "ACDCTerminal": {
+            "additionalProperties": false,
+            "description": "An electrical connection point (AC or DC) to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "measurements": {
+                    "description": "Measurements associated with this terminal defining  where the measurement is placed in the network topology.  It may be used, for instance, to capture the sensor position, such as a voltage transformer (PT) at a busbar or a current transformer (CT) at the bar between a breaker and an isolator.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "operational_limit_set": {
+                    "description": "The operational limit sets at the terminal.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "m_rid"
+            ],
+            "title": "ACDCTerminal",
+            "type": "object"
+        },
+        "ACLineSegment": {
+            "additionalProperties": false,
+            "description": "A wire or combination of wires, with consistent electrical characteristics, building a single electrical system, used to carry alternating current between points in the power system.\r\nFor symmetrical, transposed three phase lines, it is sufficient to use attributes of the line segment, which describe impedances and admittances for the entire length of the segment.  Additionally impedances can be computed by using length and associated per length impedances.\r\nThe BaseVoltage at the two ends of ACLineSegments in a Line shall have the same BaseVoltage.nominalVoltage. However, boundary lines may have slightly different BaseVoltage.nominalVoltages and variation is allowed. Larger voltage difference in general requires use of an equivalent branch.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "location": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Location"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Location of this power system resource."
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "operational_limit_set": {
+                    "description": "The operational limit sets associated with this equipment.",
+                    "items": {
+                        "$ref": "#/$defs/OperationalLimitSet"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "terminals": {
+                    "description": "Conducting equipment have terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "usage_points": {
+                    "description": "All usage points connected to the electrical grid through this equipment.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "m_rid"
+            ],
+            "title": "ACLineSegment",
+            "type": "object"
+        },
+        "ActivePower": {
+            "additionalProperties": false,
+            "description": "Product of RMS value of the voltage and the RMS value of the in-phase component of the current.",
+            "properties": {
+                "multiplier": {
+                    "$ref": "#/$defs/UnitMultiplier"
+                },
+                "unit": {
+                    "$ref": "#/$defs/UnitSymbol"
+                },
+                "value": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "multiplier",
+                "unit",
+                "value"
+            ],
+            "title": "ActivePower",
+            "type": "object"
+        },
+        "ActivePowerLimit": {
+            "additionalProperties": false,
+            "description": "Limit on active power flow.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "operational_limit_type": {
+                    "$ref": "#/$defs/OperationalLimitType",
+                    "description": "The limit type associated with this limit."
+                },
+                "value": {
+                    "$ref": "#/$defs/ActivePower",
+                    "description": "Value of active power limit. The attribute shall be a positive value or zero."
+                }
+            },
+            "required": [
+                "value",
+                "operational_limit_type",
+                "m_rid"
+            ],
+            "title": "ActivePowerLimit",
+            "type": "object"
+        },
+        "AmiBillingReadyKind": {
+            "description": "Lifecycle states of the metering installation at a usage point with respect to readiness for billing via advanced metering infrastructure reads.",
+            "enum": [
+                "amiCapable",
+                "amiDisabled",
+                "billingApproved",
+                "enabled",
+                "nonAmi",
+                "nonMetered",
+                "operable"
+            ],
+            "title": "AmiBillingReadyKind",
+            "type": "string"
+        },
+        "Analog": {
+            "additionalProperties": false,
+            "description": "Analog represents an analog Measurement.",
+            "properties": {
+                "analog_values": {
+                    "description": "The values connected to this measurement.",
+                    "items": {
+                        "$ref": "#/$defs/AnalogValue"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "measurement_type": {
+                    "description": "Specifies the type of measurement.  For example, this specifies if the measurement represents an indoor temperature, outdoor temperature, bus voltage, line flow, etc.\r\nWhen the measurementType is set to \"Specialization\", the type of Measurement is defined in more detail by the specialized class which inherits from Measurement.\r\n\r\n",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "positive_flow_in": {
+                    "description": "If true then this measurement is an active power, reactive power or current with the convention that a positive value measured at the Terminal means power is flowing into the related PowerSystemResource.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "unit_multiplier": {
+                    "$ref": "#/$defs/UnitMultiplier",
+                    "description": "The unit multiplier of the measured quantity."
+                },
+                "unit_symbol": {
+                    "$ref": "#/$defs/UnitSymbol",
+                    "description": "The unit of measure of the measured quantity."
+                }
+            },
+            "required": [
+                "analog_values",
+                "unit_multiplier",
+                "unit_symbol",
+                "m_rid"
+            ],
+            "title": "Analog",
+            "type": "object"
+        },
+        "AnalogValue": {
+            "additionalProperties": false,
+            "description": "AnalogValue represents an analog MeasurementValue.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "time_stamp": {
+                    "description": "The time when the value was last updated. Formatted as ISO8601, serialised as ECMAScript. Example _2024-11-22T13:30:00Z_.",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "The value to supervise.",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "value",
+                "time_stamp",
+                "m_rid"
+            ],
+            "title": "AnalogValue",
+            "type": "object"
+        },
+        "ConductingEquipment": {
+            "additionalProperties": false,
+            "description": "The parts of the AC power system that are designed to carry current or that are conductively connected through terminals.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "location": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Location"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Location of this power system resource."
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "operational_limit_set": {
+                    "description": "The operational limit sets associated with this equipment.",
+                    "items": {
+                        "$ref": "#/$defs/OperationalLimitSet"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "terminals": {
+                    "description": "Conducting equipment have terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "usage_points": {
+                    "description": "All usage points connected to the electrical grid through this equipment.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "m_rid"
+            ],
+            "title": "ConductingEquipment",
+            "type": "object"
+        },
+        "Conductor": {
+            "additionalProperties": false,
+            "description": "Combination of conducting material with consistent electrical characteristics, building a single electrical system, used to carry current between points in the power system.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "location": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Location"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Location of this power system resource."
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "operational_limit_set": {
+                    "description": "The operational limit sets associated with this equipment.",
+                    "items": {
+                        "$ref": "#/$defs/OperationalLimitSet"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "terminals": {
+                    "description": "Conducting equipment have terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "usage_points": {
+                    "description": "All usage points connected to the electrical grid through this equipment.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "m_rid"
+            ],
+            "title": "Conductor",
+            "type": "object"
+        },
+        "ConnectivityNode": {
+            "additionalProperties": false,
+            "description": "Connectivity nodes are points where terminals of AC conducting equipment are connected together with zero impedance.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "m_rid"
+            ],
+            "title": "ConnectivityNode",
+            "type": "object"
+        },
+        "ConnectivityNodeContainer": {
+            "additionalProperties": false,
+            "description": "A base class for all objects that may contain connectivity nodes or topological nodes.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "location": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Location"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Location of this power system resource."
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "m_rid"
+            ],
+            "title": "ConnectivityNodeContainer",
+            "type": "object"
+        },
+        "CoordinateSystem": {
+            "additionalProperties": false,
+            "description": "Coordinate reference system.",
+            "properties": {
+                "crs_urn": {
+                    "description": "A Uniform Resource Name (URN) for the coordinate reference system  (crs) used to define 'Location.PositionPoints'. For this dataset, use _urn:ogc:def:crs:EPSG::4.3.2.6_ (WGS 84) exclusively.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "crs_urn",
+                "m_rid"
+            ],
+            "title": "CoordinateSystem",
+            "type": "object"
+        },
+        "EnergyConnection": {
+            "additionalProperties": false,
+            "description": "A connection of energy generation or consumption on the power system model.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "location": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Location"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Location of this power system resource."
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "operational_limit_set": {
+                    "description": "The operational limit sets associated with this equipment.",
+                    "items": {
+                        "$ref": "#/$defs/OperationalLimitSet"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "terminals": {
+                    "description": "Conducting equipment have terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "usage_points": {
+                    "description": "All usage points connected to the electrical grid through this equipment.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "m_rid"
+            ],
+            "title": "EnergyConnection",
+            "type": "object"
+        },
+        "EnergyConsumer": {
+            "additionalProperties": false,
+            "description": "Generic user of energy - a  point of consumption on the power system model.\r\nEnergyConsumer.pfixed, .qfixed, .pfixedPct and .qfixedPct have meaning only if there is no LoadResponseCharacteristic associated with EnergyConsumer or if LoadResponseCharacteristic.exponentModel is set to False.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "location": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Location"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Location of this power system resource."
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "operational_limit_set": {
+                    "description": "The operational limit sets associated with this equipment.",
+                    "items": {
+                        "$ref": "#/$defs/OperationalLimitSet"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "terminals": {
+                    "description": "Conducting equipment have terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "usage_points": {
+                    "description": "All usage points connected to the electrical grid through this equipment.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "m_rid"
+            ],
+            "title": "EnergyConsumer",
+            "type": "object"
+        },
+        "Equipment": {
+            "additionalProperties": false,
+            "description": "The parts of a power system that are physical devices, electronic or mechanical.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "location": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Location"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Location of this power system resource."
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "operational_limit_set": {
+                    "description": "The operational limit sets associated with this equipment.",
+                    "items": {
+                        "$ref": "#/$defs/OperationalLimitSet"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "usage_points": {
+                    "description": "All usage points connected to the electrical grid through this equipment.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "m_rid"
+            ],
+            "title": "Equipment",
+            "type": "object"
+        },
+        "EquipmentContainer": {
+            "additionalProperties": false,
+            "description": "A modelling construct to provide a root class for containing equipment.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "equipments": {
+                    "description": "Contained equipment.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "location": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Location"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Location of this power system resource."
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "equipments",
+                "m_rid"
+            ],
+            "title": "EquipmentContainer",
+            "type": "object"
+        },
+        "ForecastDataSet": {
+            "additionalProperties": false,
+            "description": "A single instance of a published dataset.",
+            "properties": {
+                "ac_line_segments": {
+                    "description": "All instances of ACLineSegments",
+                    "items": {
+                        "$ref": "#/$defs/ACLineSegment"
+                    },
+                    "type": "array"
+                },
+                "active_power_limits": {
+                    "description": "All instances of ActivePowerLimits",
+                    "items": {
+                        "$ref": "#/$defs/ActivePowerLimit"
+                    },
+                    "type": "array"
+                },
+                "analogs": {
+                    "description": "All instances of Analogs",
+                    "items": {
+                        "$ref": "#/$defs/Analog"
+                    },
+                    "type": "array"
+                },
+                "conforms_to": {},
+                "contact_point": {},
+                "coordinate_systems": {
+                    "description": "All instances of CoordinateSystems",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateSystem"
+                    },
+                    "type": "array"
+                },
+                "energy_consumers": {
+                    "description": "All instances of EnergyConsumers",
+                    "items": {
+                        "$ref": "#/$defs/EnergyConsumer"
+                    },
+                    "type": "array"
+                },
+                "geographical_regions": {
+                    "description": "All instances of GeographicalRegions",
+                    "items": {
+                        "$ref": "#/$defs/GeographicalRegion"
+                    },
+                    "type": "array"
+                },
+                "identifier": {},
+                "lines": {
+                    "description": "All instances of Lines",
+                    "items": {
+                        "$ref": "#/$defs/Line"
+                    },
+                    "type": "array"
+                },
+                "market_participants": {
+                    "description": "All instances of MarketParticipants",
+                    "items": {
+                        "$ref": "#/$defs/MarketParticipant"
+                    },
+                    "type": "array"
+                },
+                "market_roles": {
+                    "description": "All instances of MarketRoles",
+                    "items": {
+                        "$ref": "#/$defs/MarketRole"
+                    },
+                    "type": "array"
+                },
+                "mkt_connectivity_nodes": {
+                    "description": "All instances of MktConnectivityNodes",
+                    "items": {
+                        "$ref": "#/$defs/MktConnectivityNode"
+                    },
+                    "type": "array"
+                },
+                "operational_limit_sets": {
+                    "description": "All instances of OperationalLimitSets",
+                    "items": {
+                        "$ref": "#/$defs/OperationalLimitSet"
+                    },
+                    "type": "array"
+                },
+                "power_transformers": {
+                    "description": "All instances of PowerTransformers",
+                    "items": {
+                        "$ref": "#/$defs/PowerTransformer"
+                    },
+                    "type": "array"
+                },
+                "registered_loads": {
+                    "description": "All instances of RegisteredLoads",
+                    "items": {
+                        "$ref": "#/$defs/RegisteredLoad"
+                    },
+                    "type": "array"
+                },
+                "release_date": {},
+                "sub_geographical_regions": {
+                    "description": "All instances of SubGeographicalRegions",
+                    "items": {
+                        "$ref": "#/$defs/SubGeographicalRegion"
+                    },
+                    "type": "array"
+                },
+                "substations": {
+                    "description": "All instances of Substations",
+                    "items": {
+                        "$ref": "#/$defs/Substation"
+                    },
+                    "type": "array"
+                },
+                "terminals": {
+                    "description": "All instances of Terminals",
+                    "items": {
+                        "$ref": "#/$defs/Terminal"
+                    },
+                    "type": "array"
+                },
+                "topological_nodes": {
+                    "description": "All instances of TopologicalNodes",
+                    "items": {
+                        "$ref": "#/$defs/TopologicalNode"
+                    },
+                    "type": "array"
+                },
+                "usage_points": {
+                    "description": "All instances of UsagePoints",
+                    "items": {
+                        "$ref": "#/$defs/UsagePoint"
+                    },
+                    "type": "array"
+                },
+                "version": {}
+            },
+            "required": [
+                "identifier",
+                "conforms_to",
+                "contact_point",
+                "release_date",
+                "version",
+                "terminals",
+                "topological_nodes",
+                "coordinate_systems",
+                "usage_points",
+                "substations",
+                "sub_geographical_regions",
+                "lines",
+                "geographical_regions",
+                "power_transformers",
+                "ac_line_segments",
+                "analogs",
+                "active_power_limits",
+                "operational_limit_sets",
+                "registered_loads",
+                "mkt_connectivity_nodes",
+                "market_participants",
+                "market_roles",
+                "energy_consumers"
+            ],
+            "title": "ForecastDataSet",
+            "type": "object"
+        },
+        "GeographicalRegion": {
+            "additionalProperties": false,
+            "description": "A geographical region of a power system network model.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "regions": {
+                    "description": "All sub-geographical regions within this geographical region.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "regions",
+                "m_rid"
+            ],
+            "title": "GeographicalRegion",
+            "type": "object"
+        },
+        "IOPoint": {
+            "additionalProperties": false,
+            "description": "The class describe a measurement or control value. The purpose is to enable having attributes and associations common for measurement and control.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "m_rid"
+            ],
+            "title": "IOPoint",
+            "type": "object"
+        },
+        "IdentifiedObject": {
+            "additionalProperties": false,
+            "description": "This is a root class to provide common identification for all classes needing identification and naming attributes.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "m_rid"
+            ],
+            "title": "IdentifiedObject",
+            "type": "object"
+        },
+        "Line": {
+            "additionalProperties": false,
+            "description": "Contains equipment beyond a substation belonging to a power transmission line.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "equipments": {
+                    "description": "Contained equipment.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "location": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Location"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Location of this power system resource."
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "equipments",
+                "m_rid"
+            ],
+            "title": "Line",
+            "type": "object"
+        },
+        "Location": {
+            "additionalProperties": false,
+            "description": "The place, scene, or point of something where someone or something has been, is, and/or will be at a given moment in time. It can be defined with one or more position points (coordinates) in a given coordinate system.",
+            "properties": {
+                "coordinate_system": {
+                    "description": "Coordinate system used to describe position points of this location.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "main_address": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/StreetAddress"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Main address of the location."
+                },
+                "position_points": {
+                    "description": "Sequence of position points describing this location, expressed in coordinate system 'Location.CoordinateSystem'.",
+                    "items": {
+                        "$ref": "#/$defs/PositionPoint"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "m_rid"
+            ],
+            "title": "Location",
+            "type": "object"
+        },
+        "MarketParticipant": {
+            "additionalProperties": false,
+            "description": "An identification of a party acting in a electricity market business process. This class is used to identify organizations that can participate in market management and/or market operations.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "market_role": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "market_role",
+                "m_rid"
+            ],
+            "title": "MarketParticipant",
+            "type": "object"
+        },
+        "MarketRole": {
+            "additionalProperties": false,
+            "description": "The external intended behavior played by a party within the electricity market.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The kind of market roles that can be played by parties for given domains within the electricity market. Types are flexible using dataType of string for free-entry of role types.\r\n",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type",
+                "m_rid"
+            ],
+            "title": "MarketRole",
+            "type": "object"
+        },
+        "Measurement": {
+            "additionalProperties": false,
+            "description": "A Measurement represents any measured, calculated or non-measured non-calculated quantity. Any piece of equipment may contain Measurements, e.g. a substation may have temperature measurements and door open indications, a transformer may have oil temperature and tank pressure measurements, a bay may contain a number of power flow measurements and a Breaker may contain a switch status measurement. \r\nThe PSR - Measurement association is intended to capture this use of Measurement and is included in the naming hierarchy based on EquipmentContainer. The naming hierarchy typically has Measurements as leaves, e.g. Substation-VoltageLevel-Bay-Switch-Measurement.\r\nSome Measurements represent quantities related to a particular sensor location in the network, e.g. a voltage transformer (VT) or potential transformer (PT) at a busbar or a current transformer (CT) at the bar between a breaker and an isolator. The sensing position is not captured in the PSR - Measurement association. Instead it is captured by the Measurement - Terminal association that is used to define the sensing location in the network topology. The location is defined by the connection of the Terminal to ConductingEquipment. \r\nIf both a Terminal and PSR are associated, and the PSR is of type ConductingEquipment, the associated Terminal should belong to that ConductingEquipment instance.\r\nWhen the sensor location is needed both Measurement-PSR and Measurement-Terminal are used.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "measurement_type": {
+                    "description": "Specifies the type of measurement.  For example, this specifies if the measurement represents an indoor temperature, outdoor temperature, bus voltage, line flow, etc.\r\nWhen the measurementType is set to \"Specialization\", the type of Measurement is defined in more detail by the specialized class which inherits from Measurement.\r\n\r\n",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "unit_multiplier": {
+                    "$ref": "#/$defs/UnitMultiplier",
+                    "description": "The unit multiplier of the measured quantity."
+                },
+                "unit_symbol": {
+                    "$ref": "#/$defs/UnitSymbol",
+                    "description": "The unit of measure of the measured quantity."
+                }
+            },
+            "required": [
+                "unit_multiplier",
+                "unit_symbol",
+                "m_rid"
+            ],
+            "title": "Measurement",
+            "type": "object"
+        },
+        "MeasurementValue": {
+            "additionalProperties": false,
+            "description": "The current state for a measurement. A state value is an instance of a measurement from a specific source. Measurements can be associated with many state values, each representing a different source for the measurement.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "time_stamp": {
+                    "description": "The time when the value was last updated. Formatted as ISO8601, serialised as ECMAScript. Example _2024-11-22T13:30:00Z_.",
+                    "format": "date-time",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "time_stamp",
+                "m_rid"
+            ],
+            "title": "MeasurementValue",
+            "type": "object"
+        },
+        "MktConnectivityNode": {
+            "additionalProperties": false,
+            "description": "Subclass of IEC61970:Topology:ConnectivityNode.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "registered_resource": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "registered_resource",
+                "m_rid"
+            ],
+            "title": "MktConnectivityNode",
+            "type": "object"
+        },
+        "Name": {
+            "additionalProperties": false,
+            "description": "The Name class provides the means to define any number of human readable  names for an object. A name is <b>not</b> to be used for defining inter-object relationships. For inter-object relationships instead use the object identification 'mRID'.",
+            "properties": {
+                "name_type": {
+                    "$ref": "#/$defs/NameType",
+                    "description": "Type of this name."
+                }
+            },
+            "required": [
+                "name_type"
+            ],
+            "title": "Name",
+            "type": "object"
+        },
+        "NameType": {
+            "additionalProperties": false,
+            "description": "Type of name. Possible values for attribute 'name' are implementation dependent but standard profiles may specify types. An enterprise may have multiple IT systems each having its own local name for the same object, e.g. a planning system may have different names from an EMS. An object may also have different names within the same IT system, e.g. localName as defined in CIM version 14. The definition from CIM14 is:\r\nThe localName is a human readable name of the object. It is a free text name local to a node in a naming hierarchy similar to a file directory structure. A power system related naming hierarchy may be: Substation, VoltageLevel, Equipment etc. Children of the same parent in such a hierarchy have names that typically are unique among them.",
+            "properties": {
+                "description": {
+                    "description": "Description of the name type.\r\n",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name_type_authority": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/NameTypeAuthority"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Authority responsible for managing names of this type."
+                }
+            },
+            "title": "NameType",
+            "type": "object"
+        },
+        "NameTypeAuthority": {
+            "additionalProperties": false,
+            "description": "Authority responsible for creation and management of names of a given type; typically an organization or an enterprise system.",
+            "properties": {
+                "description": {
+                    "description": "Description of the name type authority.\r\n",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "NameTypeAuthority",
+            "type": "object"
+        },
+        "OperationalLimit": {
+            "additionalProperties": false,
+            "description": "A value and normal value associated with a specific kind of limit. \r\nThe sub class value and normalValue attributes vary inversely to the associated OperationalLimitType.acceptableDuration (acceptableDuration for short).  \r\nIf a particular piece of equipment has multiple operational limits of the same kind (apparent power, current, etc.), the limit with the greatest acceptableDuration shall have the smallest limit value and the limit with the smallest acceptableDuration shall have the largest limit value.  Note: A large current can only be allowed to flow through a piece of equipment for a short duration without causing damage, but a lesser current can be allowed to flow for a longer duration.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "operational_limit_type": {
+                    "$ref": "#/$defs/OperationalLimitType",
+                    "description": "The limit type associated with this limit."
+                }
+            },
+            "required": [
+                "operational_limit_type",
+                "m_rid"
+            ],
+            "title": "OperationalLimit",
+            "type": "object"
+        },
+        "OperationalLimitDirectionKind": {
+            "description": "The direction attribute describes the side of  a limit that is a violation.",
+            "enum": [
+                "absoluteValue",
+                "high",
+                "low"
+            ],
+            "title": "OperationalLimitDirectionKind",
+            "type": "string"
+        },
+        "OperationalLimitSet": {
+            "additionalProperties": false,
+            "description": "A set of limits associated with equipment.  Sets of limits might apply to a specific temperature, or season for example. A set of limits may contain different severities of limit levels that would apply to the same equipment. The set may contain limits of different types such as apparent power and current limits or high and low voltage limits  that are logically applied together as a set.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "operational_limit_value": {
+                    "description": "Values of equipment limits.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "m_rid"
+            ],
+            "title": "OperationalLimitSet",
+            "type": "object"
+        },
+        "OperationalLimitType": {
+            "additionalProperties": false,
+            "description": "The operational meaning of a category of limits.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "m_rid"
+            ],
+            "title": "OperationalLimitType",
+            "type": "object"
+        },
+        "Organisation": {
+            "additionalProperties": false,
+            "description": "Organisation that might have roles as utility, contractor, supplier, manufacturer, customer, etc.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "m_rid"
+            ],
+            "title": "Organisation",
+            "type": "object"
+        },
+        "OrganisationRole": {
+            "additionalProperties": false,
+            "description": "Identifies a way in which an organisation may participate in the utility enterprise (e.g., customer, manufacturer, etc).",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "m_rid"
+            ],
+            "title": "OrganisationRole",
+            "type": "object"
+        },
+        "PhaseCode": {
+            "description": "An unordered enumeration of phase identifiers.  Allows designation of phases for both transmission and distribution equipment, circuits and loads.   The enumeration, by itself, does not describe how the phases are connected together or connected to ground.  Ground is not explicitly denoted as a phase.\r\nResidential and small commercial loads are often served from single-phase, or split-phase, secondary circuits. For the example of s12N, phases 1 and 2 refer to hot wires that are 180 degrees out of phase, while N refers to the neutral wire. Through single-phase transformer connections, these secondary circuits may be served from one or two of the primary phases A, B, and C. For three-phase loads, use the A, B, C phase codes instead of s12N.\r\nThe integer values are from IEC 61968-9 to support revenue metering applications.",
+            "enum": [
+                "A",
+                "AB",
+                "ABC",
+                "ABCN",
+                "ABN",
+                "AC",
+                "ACN",
+                "AN",
+                "B",
+                "BC",
+                "BCN",
+                "BN",
+                "C",
+                "CN",
+                "N",
+                "none",
+                "s1",
+                "s12",
+                "s12N",
+                "s1N",
+                "s2",
+                "s2N",
+                "X",
+                "XN",
+                "XY",
+                "XYN"
+            ],
+            "title": "PhaseCode",
+            "type": "string"
+        },
+        "PhaseShuntConnectionKind": {
+            "description": "The configuration of phase connections for a single terminal device such as a load or capacitor.",
+            "enum": [
+                "D",
+                "G",
+                "I",
+                "Y",
+                "Yn"
+            ],
+            "title": "PhaseShuntConnectionKind",
+            "type": "string"
+        },
+        "PositionPoint": {
+            "additionalProperties": false,
+            "description": "Set of spatial coordinates that determine a point, defined in the coordinate system specified in 'Location.CoordinateSystem'. Use a single position point instance to describe a point-oriented location. Use a sequence of position points to describe a line-oriented object (physical location of non-point oriented objects like cables or lines), or area of an object (like a substation or a geographical zone - in this case, have first and last position point with the same values).",
+            "properties": {
+                "group_number": {
+                    "description": "Zero-relative sequence number of this group within a series of points; used when there is a need to express disjoint groups of points that are considered to be part of a single location.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "sequence_number": {
+                    "description": "Zero-relative sequence number of this point within a series of points.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "x_position": {
+                    "description": "X axis position.",
+                    "type": "string"
+                },
+                "y_position": {
+                    "description": "Y axis position.",
+                    "type": "string"
+                },
+                "z_position": {
+                    "description": "(if applicable) Z axis position.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "x_position",
+                "y_position"
+            ],
+            "title": "PositionPoint",
+            "type": "object"
+        },
+        "PowerSystemResource": {
+            "additionalProperties": false,
+            "description": "A power system resource (PSR) can be an item of equipment such as a switch, an equipment container containing many individual items of equipment such as a substation, or an organisational entity such as sub-control area. Power system resources can have measurements associated.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "location": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Location"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Location of this power system resource."
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "m_rid"
+            ],
+            "title": "PowerSystemResource",
+            "type": "object"
+        },
+        "PowerTransformer": {
+            "additionalProperties": false,
+            "description": "An electrical device consisting of  two or more coupled windings, with or without a magnetic core, for introducing mutual coupling between electric circuits. Transformers can be used to control voltage and phase shift (active power flow).\r\nA power transformer may be composed of separate transformer tanks that need not be identical.\r\nA power transformer can be modelled with or without tanks and is intended for use in both balanced and unbalanced representations.   A power transformer typically has two terminals, but may have one (grounding), three or more terminals.\r\nThe inherited association ConductingEquipment.BaseVoltage should not be used.  The association from TransformerEnd to BaseVoltage should be used instead.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "location": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Location"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Location of this power system resource."
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "operational_limit_set": {
+                    "description": "The operational limit sets associated with this equipment.",
+                    "items": {
+                        "$ref": "#/$defs/OperationalLimitSet"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "power_transformer_end": {
+                    "description": "The ends of this power transformer.",
+                    "items": {
+                        "$ref": "#/$defs/PowerTransformerEnd"
+                    },
+                    "type": "array"
+                },
+                "terminals": {
+                    "description": "Conducting equipment have terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "usage_points": {
+                    "description": "All usage points connected to the electrical grid through this equipment.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "power_transformer_end",
+                "m_rid"
+            ],
+            "title": "PowerTransformer",
+            "type": "object"
+        },
+        "PowerTransformerEnd": {
+            "additionalProperties": false,
+            "description": "A PowerTransformerEnd is associated with each Terminal of a PowerTransformer.\r\nThe impedance values r, r0, x, and x0 of a PowerTransformerEnd represents a star equivalent as follows.\r\n1) for a two Terminal PowerTransformer the high voltage (TransformerEnd.endNumber=1) PowerTransformerEnd has non zero values on r, r0, x, and x0 while the low voltage (TransformerEnd.endNumber=2) PowerTransformerEnd has zero values for r, r0, x, and x0.  Parameters are always provided, even if the PowerTransformerEnds have the same rated voltage.  In this case, the parameters are provided at the PowerTransformerEnd which has TransformerEnd.endNumber equal to 1.\r\n2) for a three Terminal PowerTransformer the three PowerTransformerEnds represent a star equivalent with each leg in the star represented by r, r0, x, and x0 values.\r\n3) For a three Terminal transformer each PowerTransformerEnd shall have g, g0, b and b0 values corresponding to the no load losses distributed on the three PowerTransformerEnds. The total no load loss shunt impedances may also be placed at one of the PowerTransformerEnds, preferably the end numbered 1, having the shunt values on end 1.  This is the preferred way.\r\n4) for a PowerTransformer with more than three Terminals the PowerTransformerEnd impedance values cannot be used. Instead use the TransformerMeshImpedance or split the transformer into multiple PowerTransformers.\r\nEach PowerTransformerEnd must be contained by a PowerTransformer. Because a PowerTransformerEnd (or any other object) can not be contained by more than one parent, a PowerTransformerEnd can not have an association to an EquipmentContainer (Substation, VoltageLevel, etc).",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "terminal": {
+                    "description": "Terminal of the power transformer to which this transformer end belongs.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "terminal",
+                "m_rid"
+            ],
+            "title": "PowerTransformerEnd",
+            "type": "object"
+        },
+        "RegisteredLoad": {
+            "additionalProperties": false,
+            "description": "Model of a load that is registered to participate in the market.\r\n\r\nRegisteredLoad is used to model any load that is served by the wholesale market directly. RegisteredLoads may be dispatchable or non-dispatchable and may or may not have bid curves. Examples of RegisteredLoads would include: distribution company load, energy retailer load, large bulk power system connected facility load.\r\n\r\nLoads that are served indirectly, for example - through an energy retailer or a vertical utility, should be modeled as RegisteredDistributedResources. Examples of RegisteredDistributedResources would include: distribution level storage, distribution level generation and distribution level demand response.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "location": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Location"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Location of this power system resource."
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "market_participant": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "market_participant",
+                "m_rid"
+            ],
+            "title": "RegisteredLoad",
+            "type": "object"
+        },
+        "RegisteredResource": {
+            "additionalProperties": false,
+            "description": "A resource that is registered through the market participant registration system. Examples include generating unit, load, and non-physical generator or load.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "location": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Location"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Location of this power system resource."
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "market_participant": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "market_participant",
+                "m_rid"
+            ],
+            "title": "RegisteredResource",
+            "type": "object"
+        },
+        "ResourceRegistrationStatus": {
+            "description": "Types of resource registration status, for example:\r\n\r\nActive\r\nMothballed\r\nPlanned\r\nDecommissioned",
+            "enum": [
+                "Active",
+                "Decommissioned",
+                "Mothballed",
+                "Planned"
+            ],
+            "title": "ResourceRegistrationStatus",
+            "type": "string"
+        },
+        "StreetAddress": {
+            "additionalProperties": false,
+            "description": "General purpose street and postal address information.",
+            "properties": {
+                "postal_code": {
+                    "description": "Postal code for the address.",
+                    "type": "string"
+                },
+                "street_detail": {
+                    "$ref": "#/$defs/StreetDetail",
+                    "description": "Street detail."
+                },
+                "town_detail": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/TownDetail"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Town detail."
+                }
+            },
+            "required": [
+                "postal_code",
+                "street_detail"
+            ],
+            "title": "StreetAddress",
+            "type": "object"
+        },
+        "StreetDetail": {
+            "additionalProperties": false,
+            "description": "Street details, in the context of address.",
+            "properties": {
+                "code": {
+                    "description": "(if applicable) Utilities often make use of external reference systems, such as those of the town-planner's department or surveyor general's mapping system, that allocate global reference codes to streets.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "number": {
+                    "description": "Designator of the specific location on the street. Includes number suffix, i.e. '11 A'.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "number"
+            ],
+            "title": "StreetDetail",
+            "type": "object"
+        },
+        "SubGeographicalRegion": {
+            "additionalProperties": false,
+            "description": "A subset of a geographical region of a power system network model.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "lines": {
+                    "description": "The lines within the sub-geographical region.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "substations": {
+                    "description": "The substations in this sub-geographical region.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "lines",
+                "substations",
+                "m_rid"
+            ],
+            "title": "SubGeographicalRegion",
+            "type": "object"
+        },
+        "Substation": {
+            "additionalProperties": false,
+            "description": "A collection of equipment for purposes other than generation or utilization, through which electric energy in bulk is passed for the purposes of switching or modifying its characteristics.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "equipments": {
+                    "description": "Contained equipment.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "location": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Location"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Location of this power system resource."
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "equipments",
+                "m_rid"
+            ],
+            "title": "Substation",
+            "type": "object"
+        },
+        "Terminal": {
+            "additionalProperties": false,
+            "description": "An AC electrical connection point to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes.",
+            "properties": {
+                "conducting_equipment": {
+                    "description": "The conducting equipment of the terminal. Conducting equipment have  terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "connectivity_node": {
+                    "description": "The connectivity node to which this terminal connects with zero impedance.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "measurements": {
+                    "description": "Measurements associated with this terminal defining  where the measurement is placed in the network topology.  It may be used, for instance, to capture the sensor position, such as a voltage transformer (PT) at a busbar or a current transformer (CT) at the bar between a breaker and an isolator.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "operational_limit_set": {
+                    "description": "The operational limit sets at the terminal.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "topological_node": {
+                    "description": "The topological node associated with the terminal. This can be used as an alternative to the connectivity node path to topological node, thus making it unnecessary to model connectivity nodes in some cases. Note that the if connectivity nodes are in the model, this association would probably not be used as an input specification.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "m_rid"
+            ],
+            "title": "Terminal",
+            "type": "object"
+        },
+        "TopologicalNode": {
+            "additionalProperties": false,
+            "description": "For a detailed substation model a topological node is a set of connectivity nodes that, in the current network state, are connected together through any type of closed switches, including  jumpers. Topological nodes change as the current network state changes (i.e., switches, breakers, etc. change state).\r\nFor a planning model, switch statuses are not used to form topological nodes. Instead they are manually created or deleted in a model builder tool. Topological nodes maintained this way are also called \"busses\".",
+            "properties": {
+                "connectivity_nodes": {
+                    "description": "The connectivity nodes combine together to form this topological node.  May depend on the current state of switches in the network.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "terminal": {
+                    "description": "The terminals associated with the topological node. This can be used as an alternative to the connectivity node path to terminal, thus making it unnecessary to model connectivity nodes in some cases. Note that if connectivity nodes are in the model, this association would probably not be used as an input specification.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "terminal",
+                "m_rid"
+            ],
+            "title": "TopologicalNode",
+            "type": "object"
+        },
+        "TownDetail": {
+            "additionalProperties": false,
+            "description": "Town details, in the context of address.",
+            "properties": {
+                "name": {
+                    "description": "Town name.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "section": {
+                    "description": "Town section. For example, it is common for there to be 36 sections per township.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "state_or_province": {
+                    "description": "Name of the state or province.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "state_or_province"
+            ],
+            "title": "TownDetail",
+            "type": "object"
+        },
+        "TransformerEnd": {
+            "additionalProperties": false,
+            "description": "A conducting connection point of a power transformer. It corresponds to a physical transformer winding terminal.  In earlier CIM versions, the TransformerWinding class served a similar purpose, but this class is more flexible because it associates to terminal but is not a specialization of ConductingEquipment.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "terminal": {
+                    "description": "Terminal of the power transformer to which this transformer end belongs.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "terminal",
+                "m_rid"
+            ],
+            "title": "TransformerEnd",
+            "type": "object"
+        },
+        "UnitMultiplier": {
+            "description": "The unit multipliers defined for the CIM.  When applied to unit symbols, the unit symbol is treated as a derived unit. Regardless of the contents of the unit symbol text, the unit symbol shall be treated as if it were a single-character unit symbol. Unit symbols should not contain multipliers, and it should be left to the multiplier to define the multiple for an entire data type. \r\n\r\nFor example, if a unit symbol is \"m2Pers\" and the multiplier is \"k\", then the value is k(m**2/s), and the multiplier applies to the entire final value, not to any individual part of the value. This can be conceptualized by substituting a derived unit symbol for the unit type. If one imagines that the symbol \"\u00de\" represents the derived unit \"m2Pers\", then applying the multiplier \"k\" can be conceptualized simply as \"k\u00de\".\r\n\r\nFor example, the SI unit for mass is \"kg\" and not \"g\".  If the unit symbol is defined as \"kg\", then the multiplier is applied to \"kg\" as a whole and does not replace the \"k\" in front of the \"g\". In this case, the multiplier of \"m\" would be used with the unit symbol of \"kg\" to represent one gram.  As a text string, this violates the instructions in IEC 80000-1. However, because the unit symbol in CIM is treated as a derived unit instead of as an SI unit, it makes more sense to conceptualize the \"kg\" as if it were replaced by one of the proposed replacements for the SI mass symbol. If one imagines that the \"kg\" were replaced by a symbol \"\u00de\", then it is easier to conceptualize the multiplier \"m\" as creating the proper unit \"m\u00de\", and not the forbidden unit \"mkg\".",
+            "enum": [
+                "a",
+                "c",
+                "d",
+                "da",
+                "E",
+                "f",
+                "G",
+                "h",
+                "k",
+                "m",
+                "M",
+                "micro",
+                "n",
+                "none",
+                "p",
+                "P",
+                "T",
+                "y",
+                "Y",
+                "z",
+                "Z"
+            ],
+            "title": "UnitMultiplier",
+            "type": "string"
+        },
+        "UnitSymbol": {
+            "description": "The derived units defined for usage in the CIM. In some cases, the derived unit is equal to an SI unit. Whenever possible, the standard derived symbol is used instead of the formula for the derived unit. For example, the unit symbol Farad is defined as \"F\" instead of \"CPerV\". In cases where a standard symbol does not exist for a derived unit, the formula for the unit is used as the unit symbol. For example, density does not have a standard symbol and so it is represented as \"kgPerm3\". With the exception of the \"kg\", which is an SI unit, the unit symbols do not contain multipliers and therefore represent the base derived unit to which a multiplier can be applied as a whole. \r\nEvery unit symbol is treated as an unparseable text as if it were a single-letter symbol. The meaning of each unit symbol is defined by the accompanying descriptive text and not by the text contents of the unit symbol.\r\nTo allow the widest possible range of serializations without requiring special character handling, several substitutions are made which deviate from the format described in IEC 80000-1. The division symbol \"/\" is replaced by the letters \"Per\". Exponents are written in plain text after the unit as \"m3\" instead of being formatted as \"m\" with a superscript of 3  or introducing a symbol as in \"m^3\". The degree symbol \"\u00b0\" is replaced with the letters \"deg\". Any clarification of the meaning for a substitution is included in the description for the unit symbol.\r\nNon-SI units are included in list of unit symbols to allow sources of data to be correctly labelled with their non-SI units (for example, a GPS sensor that is reporting numbers that represent feet instead of meters). This allows software to use the unit symbol information correctly convert and scale the raw data of those sources into SI-based units. \r\nThe integer values are used for harmonization with IEC 61850.",
+            "enum": [
+                "A",
+                "A2",
+                "A2h",
+                "A2s",
+                "Ah",
+                "anglemin",
+                "anglesec",
+                "APerA",
+                "APerm",
+                "As",
+                "bar",
+                "Bq",
+                "Btu",
+                "C",
+                "cd",
+                "character",
+                "charPers",
+                "cosPhi",
+                "count",
+                "CPerkg",
+                "CPerm2",
+                "CPerm3",
+                "d",
+                "dB",
+                "dBm",
+                "deg",
+                "degC",
+                "F",
+                "FPerm",
+                "ft3",
+                "G",
+                "gal",
+                "gPerg",
+                "Gy",
+                "GyPers",
+                "H",
+                "h",
+                "ha",
+                "HPerm",
+                "Hz",
+                "HzPerHz",
+                "HzPers",
+                "J",
+                "JPerK",
+                "JPerkg",
+                "JPerkgK",
+                "JPerm2",
+                "JPerm3",
+                "JPermol",
+                "JPermolK",
+                "JPers",
+                "K",
+                "kat",
+                "katPerm3",
+                "kg",
+                "kgm",
+                "kgm2",
+                "kgPerJ",
+                "kgPerm3",
+                "kn",
+                "KPers",
+                "l",
+                "lm",
+                "lPerh",
+                "lPerl",
+                "lPers",
+                "lx",
+                "m",
+                "M",
+                "m2",
+                "m2Pers",
+                "m3",
+                "m3Compensated",
+                "m3Perh",
+                "m3Perkg",
+                "m3Pers",
+                "m3Uncompensated",
+                "min",
+                "mmHg",
+                "mol",
+                "molPerkg",
+                "molPerm3",
+                "molPermol",
+                "mPerm3",
+                "mPers",
+                "mPers2",
+                "Mx",
+                "N",
+                "Nm",
+                "none",
+                "NPerm",
+                "Oe",
+                "ohm",
+                "ohmm",
+                "ohmPerm",
+                "onePerHz",
+                "onePerm",
+                "Pa",
+                "PaPers",
+                "Pas",
+                "ppm",
+                "Q",
+                "Qh",
+                "rad",
+                "radPers",
+                "radPers2",
+                "rev",
+                "rotPers",
+                "s",
+                "S",
+                "SPerm",
+                "sPers",
+                "sr",
+                "Sv",
+                "T",
+                "therm",
+                "tonne",
+                "V",
+                "V2",
+                "V2h",
+                "VA",
+                "VAh",
+                "VAr",
+                "VArh",
+                "Vh",
+                "VPerHz",
+                "VPerm",
+                "VPerV",
+                "VPerVA",
+                "VPerVAr",
+                "Vs",
+                "W",
+                "Wb",
+                "Wh",
+                "WPerA",
+                "WPerm2",
+                "WPerm2sr",
+                "WPermK",
+                "WPers",
+                "WPersr",
+                "WPerW"
+            ],
+            "title": "UnitSymbol",
+            "type": "string"
+        },
+        "UsagePoint": {
+            "additionalProperties": false,
+            "description": "Logical or physical point in the network to which readings or events may be attributed. Used at the place where a physical or virtual meter may be located; however, it is not required that a meter be present.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "european_article_number_ean": {
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 18 characters as defined by the EAN code. For details on EAN scheme please refer to the [Codebesluit toekenning EAN-codes elektriciteit](https://www.acm.nl/nl/publicaties/codebesluit-toekenning-ean-codes-elektriciteit).",
+                    "type": "string"
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "european_article_number_ean",
+                "m_rid"
+            ],
+            "title": "UsagePoint",
+            "type": "object"
+        },
+        "UsagePointConnectedKind": {
+            "description": "State of the usage point with respect to connection to the network.",
+            "enum": [
+                "connected",
+                "logicallyDisconnected",
+                "physicallyDisconnected"
+            ],
+            "title": "UsagePointConnectedKind",
+            "type": "string"
+        },
+        "WindingConnection": {
+            "description": "Winding connection type.",
+            "enum": [
+                "A",
+                "D",
+                "I",
+                "Y",
+                "Yn",
+                "Z",
+                "Zn"
+            ],
+            "title": "WindingConnection",
+            "type": "string"
+        },
+        "YesNo": {
+            "description": "Used as a flag set to Yes or No.",
+            "enum": [
+                "NO",
+                "YES"
+            ],
+            "title": "YesNo",
+            "type": "string"
+        }
+    },
+    "$id": "http://data.netbeheernederland.nl/data-product/dp-netbewust-laden",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": true,
+    "description": "A single instance of a published dataset.",
+    "metamodel_version": "1.7.0",
+    "properties": {
+        "ac_line_segments": {
+            "description": "All instances of ACLineSegments",
+            "items": {
+                "$ref": "#/$defs/ACLineSegment"
+            },
+            "type": "array"
+        },
+        "active_power_limits": {
+            "description": "All instances of ActivePowerLimits",
+            "items": {
+                "$ref": "#/$defs/ActivePowerLimit"
+            },
+            "type": "array"
+        },
+        "analogs": {
+            "description": "All instances of Analogs",
+            "items": {
+                "$ref": "#/$defs/Analog"
+            },
+            "type": "array"
+        },
+        "conforms_to": {},
+        "contact_point": {},
+        "coordinate_systems": {
+            "description": "All instances of CoordinateSystems",
+            "items": {
+                "$ref": "#/$defs/CoordinateSystem"
+            },
+            "type": "array"
+        },
+        "energy_consumers": {
+            "description": "All instances of EnergyConsumers",
+            "items": {
+                "$ref": "#/$defs/EnergyConsumer"
+            },
+            "type": "array"
+        },
+        "geographical_regions": {
+            "description": "All instances of GeographicalRegions",
+            "items": {
+                "$ref": "#/$defs/GeographicalRegion"
+            },
+            "type": "array"
+        },
+        "identifier": {},
+        "lines": {
+            "description": "All instances of Lines",
+            "items": {
+                "$ref": "#/$defs/Line"
+            },
+            "type": "array"
+        },
+        "market_participants": {
+            "description": "All instances of MarketParticipants",
+            "items": {
+                "$ref": "#/$defs/MarketParticipant"
+            },
+            "type": "array"
+        },
+        "market_roles": {
+            "description": "All instances of MarketRoles",
+            "items": {
+                "$ref": "#/$defs/MarketRole"
+            },
+            "type": "array"
+        },
+        "mkt_connectivity_nodes": {
+            "description": "All instances of MktConnectivityNodes",
+            "items": {
+                "$ref": "#/$defs/MktConnectivityNode"
+            },
+            "type": "array"
+        },
+        "operational_limit_sets": {
+            "description": "All instances of OperationalLimitSets",
+            "items": {
+                "$ref": "#/$defs/OperationalLimitSet"
+            },
+            "type": "array"
+        },
+        "power_transformers": {
+            "description": "All instances of PowerTransformers",
+            "items": {
+                "$ref": "#/$defs/PowerTransformer"
+            },
+            "type": "array"
+        },
+        "registered_loads": {
+            "description": "All instances of RegisteredLoads",
+            "items": {
+                "$ref": "#/$defs/RegisteredLoad"
+            },
+            "type": "array"
+        },
+        "release_date": {},
+        "sub_geographical_regions": {
+            "description": "All instances of SubGeographicalRegions",
+            "items": {
+                "$ref": "#/$defs/SubGeographicalRegion"
+            },
+            "type": "array"
+        },
+        "substations": {
+            "description": "All instances of Substations",
+            "items": {
+                "$ref": "#/$defs/Substation"
+            },
+            "type": "array"
+        },
+        "terminals": {
+            "description": "All instances of Terminals",
+            "items": {
+                "$ref": "#/$defs/Terminal"
+            },
+            "type": "array"
+        },
+        "topological_nodes": {
+            "description": "All instances of TopologicalNodes",
+            "items": {
+                "$ref": "#/$defs/TopologicalNode"
+            },
+            "type": "array"
+        },
+        "usage_points": {
+            "description": "All instances of UsagePoints",
+            "items": {
+                "$ref": "#/$defs/UsagePoint"
+            },
+            "type": "array"
+        },
+        "version": {}
+    },
+    "required": [
+        "identifier",
+        "conforms_to",
+        "contact_point",
+        "release_date",
+        "version",
+        "terminals",
+        "topological_nodes",
+        "coordinate_systems",
+        "usage_points",
+        "substations",
+        "sub_geographical_regions",
+        "lines",
+        "geographical_regions",
+        "power_transformers",
+        "ac_line_segments",
+        "analogs",
+        "active_power_limits",
+        "operational_limit_sets",
+        "registered_loads",
+        "mkt_connectivity_nodes",
+        "market_participants",
+        "market_roles",
+        "energy_consumers"
+    ],
+    "title": "dp-netbewust-laden",
+    "type": "object",
+    "version": "v0.draft"
+}

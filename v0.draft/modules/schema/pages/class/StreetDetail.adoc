@@ -1,0 +1,123 @@
+= `StreetDetail`
+:toclevels: 4
+
+
++++Street details, in the context of address.+++
+
+
+[cols="h,3",width=65%]
+|===
+| Type
+| Class
+
+| URI
+| `cim:StreetDetail`
+
+
+| CIM standard (perspective)
+| IEC61968 (Enterprise)
+
+
+
+|===
+
+== Class hierarchy
+* *`StreetDetail`*
+
+
+== Slots
+
+
+
+
+[cols="1,1,2,1",width=100%]
+|===
+| Name | Type | Description | Inherited from
+
+| <<code,`code`>>
+//| [[slots_table.code]]<<code,`code`>>
+| 0..1 +
+https://w3id.org/linkml/String[`string`]
+| +++(if applicable) Utilities often make use of external reference systems, such as those of the town-planner's department or...+++
+| _n/a_
+
+| <<number,`number`>>
+//| [[slots_table.number]]<<number,`number`>>
+| 1 +
+https://w3id.org/linkml/String[`string`]
+| +++Designator of the specific location on the street. Includes number suffix, i.e. '11 A'.+++
+| _n/a_
+|===
+
+'''
+
+
+//[discrete]
+[#code]
+=== `code`
++++(if applicable) Utilities often make use of external reference systems, such as those of the town-planner's department or surveyor general's mapping system, that allocate global reference codes to streets.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:StreetDetail.code`
+| Cardinality
+| 0..1
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.code,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#number]
+=== `number`
++++Designator of the specific location on the street. Includes number suffix, i.e. '11 A'.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:StreetDetail.number`
+| Cardinality
+| 1
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.number,&#10548;>>
+--
+////
+
+
+
+
+
+== Used by
+
+
+[cols="1,1",width=65%]
+|===
+| Source class | Slot name
+
+
+
+| xref::class/StreetAddress.adoc[`StreetAddress`] | xref::class/StreetAddress.adoc#street_detail[`street_detail`]
+
+
+|===
+
