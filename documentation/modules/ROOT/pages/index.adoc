@@ -22,7 +22,7 @@ grid-rows: 10
 grid-columns: 6
 
 horizontal-gap: 160
-vertical-gap: 80
+vertical-gap: 160
 
 vars: {
   d2-config: {
@@ -62,11 +62,9 @@ cim\:MarketParticipant.class: market
 cim\:RegisteredLoad.class: market
 cim\:MktConnectivityNode: {
   class: market
-  shape: oval
 }
 cim\:TopologicalNode: {
   class: grid
-  shape: oval
 }
 10.class: empty
 
