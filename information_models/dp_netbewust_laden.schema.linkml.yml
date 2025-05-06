@@ -851,6 +851,43 @@ classes:
           other conducting equipment terminals via connectivity nodes or topological
           nodes.
     class_uri: cim:ConductingEquipment
+  BaseVoltage:
+    description: 'Defines a system base voltage which is referenced. '
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
+    is_a: IdentifiedObject
+    attributes:
+      nominalVoltage:
+        description: The power system resource's base voltage.  Shall be a positive
+          value and not zero.
+        slot_uri: cim:BaseVoltage.nominalVoltage
+        range: Voltage
+        required: false
+        multivalued: false
+    class_uri: cim:BaseVoltage
+  Voltage:
+    annotations:
+      represents_cim_data_type:
+        tag: represents_cim_data_type
+        value: true
+    description: Electrical voltage, can be both AC and DC.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Domain
+    attributes:
+      multiplier:
+        slot_uri: cim:Voltage.multiplier
+        range: UnitMultiplier
+        required: false
+        multivalued: false
+      unit:
+        slot_uri: cim:Voltage.unit
+        range: UnitSymbol
+        required: false
+        multivalued: false
+      value:
+        slot_uri: cim:Voltage.value
+        range: float
+        required: false
+        multivalued: false
+    class_uri: cim:Voltage
   Terminal:
     description: An AC electrical connection point to a piece of conducting equipment.
       Terminals are connected at physical connection points called connectivity nodes.
@@ -943,6 +980,13 @@ classes:
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Wires
     is_a: IdentifiedObject
     attributes:
+      base_voltage:
+        slot_uri: cim:TransformerEnd.BaseVoltage
+        range: BaseVoltage
+        required: true
+        multivalued: false
+        description: Base voltage of the transformer end.  This is essential for PU
+          calculation.
       terminal:
         description: Terminal of the power transformer to which this transformer end
           belongs.
