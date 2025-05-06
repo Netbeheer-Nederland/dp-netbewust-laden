@@ -124,6 +124,15 @@ PowerTransformer {
 
 
 
+BaseVoltage {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
 ACLineSegment {
   style {
     fill: "#eccfcb"
@@ -233,6 +242,9 @@ ForecastDataSet -> GeographicalRegion: geographical_regions
 ForecastDataSet -> PowerTransformer: power_transformers
 
 
+ForecastDataSet -> BaseVoltage: base_voltages
+
+
 ForecastDataSet -> ACLineSegment: ac_line_segments
 
 
@@ -332,6 +344,13 @@ xref::class/ActivePowerLimit.adoc[`ActivePowerLimit`]
 | 1..* +
 xref::class/Analog.adoc[`Analog`]
 | +++All instances of Analogs+++
+| _n/a_
+
+| <<base_voltages,`base_voltages`>>
+//| [[slots_table.base_voltages]]<<base_voltages,`base_voltages`>>
+| 1..* +
+xref::class/BaseVoltage.adoc[`BaseVoltage`]
+| +++All instances of BaseVoltages+++
 | _n/a_
 
 | <<conforms_to,`conforms_to`>>
@@ -552,6 +571,32 @@ https://w3id.org/linkml/String[`string`]
 [.text-left]
 --
 <<slots_table.analogs,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#base_voltages]
+=== `base_voltages`
++++All instances of BaseVoltages+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.BaseVoltage`
+| Cardinality
+| 1..*
+| Type
+| xref::class/BaseVoltage.adoc[`BaseVoltage`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.base_voltages,&#10548;>>
 --
 ////
 

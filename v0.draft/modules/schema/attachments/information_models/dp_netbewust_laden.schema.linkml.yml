@@ -657,6 +657,13 @@ classes:
         range: PowerTransformer
         required: true
         inlined_as_list: true
+      base_voltages:
+        description: All instances of BaseVoltages
+        slot_uri: this:ForecastDataSet.BaseVoltage
+        multivalued: true
+        range: BaseVoltage
+        required: true
+        inlined_as_list: true
       ac_line_segments:
         description: All instances of ACLineSegments
         slot_uri: this:ForecastDataSet.aCLineSegments
@@ -864,6 +871,7 @@ classes:
         range: Voltage
         required: false
         multivalued: false
+        inlined_as_list: true
     class_uri: cim:BaseVoltage
   Voltage:
     annotations:

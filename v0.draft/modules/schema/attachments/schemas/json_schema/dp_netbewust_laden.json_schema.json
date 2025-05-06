@@ -746,6 +746,13 @@
                     },
                     "type": "array"
                 },
+                "base_voltages": {
+                    "description": "All instances of BaseVoltages",
+                    "items": {
+                        "$ref": "#/$defs/BaseVoltage"
+                    },
+                    "type": "array"
+                },
                 "conforms_to": {},
                 "contact_point": {},
                 "coordinate_systems": {
@@ -872,6 +879,7 @@
                 "lines",
                 "geographical_regions",
                 "power_transformers",
+                "base_voltages",
                 "ac_line_segments",
                 "analogs",
                 "active_power_limits",
@@ -2280,6 +2288,13 @@
             },
             "type": "array"
         },
+        "base_voltages": {
+            "description": "All instances of BaseVoltages",
+            "items": {
+                "$ref": "#/$defs/BaseVoltage"
+            },
+            "type": "array"
+        },
         "conforms_to": {},
         "contact_point": {},
         "coordinate_systems": {
@@ -2406,6 +2421,7 @@
         "lines",
         "geographical_regions",
         "power_transformers",
+        "base_voltages",
         "ac_line_segments",
         "analogs",
         "active_power_limits",

@@ -226,6 +226,10 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 
 
 
+| xref::class/ForecastDataSet.adoc[`ForecastDataSet`] | xref::class/ForecastDataSet.adoc#base_voltages[`base_voltages`]
+
+
+
 | xref::class/TransformerEnd.adoc[`TransformerEnd`] | xref::class/TransformerEnd.adoc#base_voltage[`base_voltage`]
 
 
