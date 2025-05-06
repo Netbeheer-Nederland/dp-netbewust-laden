@@ -24,6 +24,9 @@ The BaseVoltage at the two ends of ACLineSegments in a Line shall have the same 
 | xref::class/AnalogValue.adoc[`AnalogValue`]
 | +++AnalogValue represents an analog MeasurementValue.+++
 
+| xref::class/BaseVoltage.adoc[`BaseVoltage`]
+| +++Defines a system base voltage which is referenced.+++
+
 | xref::class/ConductingEquipment.adoc[`ConductingEquipment`]
 | +++The parts of the AC power system that are designed to carry current or that are conductively connected through terminals.+++
 
@@ -188,6 +191,9 @@ For a planning model, switch statuses are not used to form topological nodes. In
 
 | xref::class/ActivePower.adoc[`ActivePower`]
 | +++Product of RMS value of the voltage and the RMS value of the in-phase component of the current.+++
+
+| xref::class/Voltage.adoc[`Voltage`]
+| +++Electrical voltage, can be both AC and DC.+++
 
 |===
 

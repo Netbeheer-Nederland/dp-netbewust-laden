@@ -260,6 +260,39 @@
             "title": "AnalogValue",
             "type": "object"
         },
+        "BaseVoltage": {
+            "additionalProperties": false,
+            "description": "Defines a system base voltage which is referenced.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "nominalVoltage": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Voltage"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The power system resource's base voltage.  Shall be a positive value and not zero."
+                }
+            },
+            "required": [
+                "m_rid"
+            ],
+            "title": "BaseVoltage",
+            "type": "object"
+        },
         "ConductingEquipment": {
             "additionalProperties": false,
             "description": "The parts of the AC power system that are designed to carry current or that are conductively connected through terminals.",
@@ -1554,6 +1587,10 @@
             "additionalProperties": false,
             "description": "A PowerTransformerEnd is associated with each Terminal of a PowerTransformer.\r\nThe impedance values r, r0, x, and x0 of a PowerTransformerEnd represents a star equivalent as follows.\r\n1) for a two Terminal PowerTransformer the high voltage (TransformerEnd.endNumber=1) PowerTransformerEnd has non zero values on r, r0, x, and x0 while the low voltage (TransformerEnd.endNumber=2) PowerTransformerEnd has zero values for r, r0, x, and x0.  Parameters are always provided, even if the PowerTransformerEnds have the same rated voltage.  In this case, the parameters are provided at the PowerTransformerEnd which has TransformerEnd.endNumber equal to 1.\r\n2) for a three Terminal PowerTransformer the three PowerTransformerEnds represent a star equivalent with each leg in the star represented by r, r0, x, and x0 values.\r\n3) For a three Terminal transformer each PowerTransformerEnd shall have g, g0, b and b0 values corresponding to the no load losses distributed on the three PowerTransformerEnds. The total no load loss shunt impedances may also be placed at one of the PowerTransformerEnds, preferably the end numbered 1, having the shunt values on end 1.  This is the preferred way.\r\n4) for a PowerTransformer with more than three Terminals the PowerTransformerEnd impedance values cannot be used. Instead use the TransformerMeshImpedance or split the transformer into multiple PowerTransformers.\r\nEach PowerTransformerEnd must be contained by a PowerTransformer. Because a PowerTransformerEnd (or any other object) can not be contained by more than one parent, a PowerTransformerEnd can not have an association to an EquipmentContainer (Substation, VoltageLevel, etc).",
             "properties": {
+                "base_voltage": {
+                    "description": "Base voltage of the transformer end.  This is essential for PU calculation.",
+                    "type": "string"
+                },
                 "description": {
                     "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
                     "type": [
@@ -1571,6 +1608,7 @@
                 }
             },
             "required": [
+                "base_voltage",
                 "terminal",
                 "m_rid"
             ],
@@ -1930,6 +1968,10 @@
             "additionalProperties": false,
             "description": "A conducting connection point of a power transformer. It corresponds to a physical transformer winding terminal.  In earlier CIM versions, the TransformerWinding class served a similar purpose, but this class is more flexible because it associates to terminal but is not a specialization of ConductingEquipment.",
             "properties": {
+                "base_voltage": {
+                    "description": "Base voltage of the transformer end.  This is essential for PU calculation.",
+                    "type": "string"
+                },
                 "description": {
                     "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
                     "type": [
@@ -1947,6 +1989,7 @@
                 }
             },
             "required": [
+                "base_voltage",
                 "terminal",
                 "m_rid"
             ],
@@ -2165,6 +2208,26 @@
             ],
             "title": "UsagePointConnectedKind",
             "type": "string"
+        },
+        "Voltage": {
+            "additionalProperties": false,
+            "description": "Electrical voltage, can be both AC and DC.",
+            "properties": {
+                "multiplier": {
+                    "$ref": "#/$defs/UnitMultiplier"
+                },
+                "unit": {
+                    "$ref": "#/$defs/UnitSymbol"
+                },
+                "value": {
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Voltage",
+            "type": "object"
         },
         "WindingConnection": {
             "description": "Winding connection type.",

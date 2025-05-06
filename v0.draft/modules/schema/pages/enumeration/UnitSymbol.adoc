@@ -612,5 +612,9 @@ The integer values are used for harmonization with IEC 61850.+++
 | xref::class/Measurement.adoc[`Measurement`] | xref::class/Measurement.adoc#unit_symbol[`unit_symbol`]
 
 
+
+| xref::class/Voltage.adoc[`Voltage`] | xref::class/Voltage.adoc#unit[`unit`]
+
+
 |===
 

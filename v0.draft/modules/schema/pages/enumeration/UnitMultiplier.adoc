@@ -132,5 +132,9 @@ For example, the SI unit for mass is "kg" and not "g".  If the unit symbol is de
 | xref::class/Measurement.adoc[`Measurement`] | xref::class/Measurement.adoc#unit_multiplier[`unit_multiplier`]
 
 
+
+| xref::class/Voltage.adoc[`Voltage`] | xref::class/Voltage.adoc#multiplier[`multiplier`]
+
+
 |===
 

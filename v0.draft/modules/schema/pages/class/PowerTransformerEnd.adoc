@@ -54,6 +54,15 @@ PowerTransformerEnd {
 
 
 
+BaseVoltage {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
 Terminal {
   style {
     fill: "#eccfcb"
@@ -62,6 +71,9 @@ Terminal {
 }
 
 
+
+
+PowerTransformerEnd -> BaseVoltage: base_voltage
 
 
 PowerTransformerEnd -> Terminal: terminal
@@ -120,6 +132,13 @@ legend: "" {
 |===
 | Name | Type | Description | Inherited from
 
+| <<base_voltage,`base_voltage`>>
+//| [[slots_table.base_voltage]]<<base_voltage,`base_voltage`>>
+| 1 +
+xref::class/BaseVoltage.adoc[`BaseVoltage`]
+| +++Base voltage of the transformer end.  This is essential for PU calculation.+++
+| xref::class/TransformerEnd.adoc[`TransformerEnd`]
+
 | <<terminal,`terminal`>>
 //| [[slots_table.terminal]]<<terminal,`terminal`>>
 | 1 +
@@ -143,6 +162,35 @@ https://w3id.org/linkml/String[`string`]
 |===
 
 '''
+
+
+//[discrete]
+[#base_voltage]
+=== `base_voltage`
++++Base voltage of the transformer end.  This is essential for PU calculation.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:TransformerEnd.BaseVoltage`
+| Cardinality
+| 1
+| Type
+| xref::class/BaseVoltage.adoc[`BaseVoltage`]
+
+| Inherited from
+| xref::class/TransformerEnd.adoc[`TransformerEnd`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.base_voltage,&#10548;>>
+--
+////
 
 
 //[discrete]

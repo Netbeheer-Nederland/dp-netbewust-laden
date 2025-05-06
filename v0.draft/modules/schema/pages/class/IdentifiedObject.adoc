@@ -24,6 +24,7 @@
 == Class hierarchy
 * *`IdentifiedObject`*
  ** xref::class/ACDCTerminal.adoc[`ACDCTerminal`]
+ ** xref::class/BaseVoltage.adoc[`BaseVoltage`]
  ** xref::class/ConnectivityNode.adoc[`ConnectivityNode`]
  ** xref::class/CoordinateSystem.adoc[`CoordinateSystem`]
  ** xref::class/GeographicalRegion.adoc[`GeographicalRegion`]

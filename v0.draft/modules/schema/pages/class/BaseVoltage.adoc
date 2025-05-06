@@ -1,8 +1,8 @@
-= `TransformerEnd`
+= `BaseVoltage`
 :toclevels: 4
 
 
-+++A conducting connection point of a power transformer. It corresponds to a physical transformer winding terminal.  In earlier CIM versions, the TransformerWinding class served a similar purpose, but this class is more flexible because it associates to terminal but is not a specialization of ConductingEquipment.+++
++++Defines a system base voltage which is referenced.+++
 
 
 [cols="h,3",width=65%]
@@ -11,7 +11,7 @@
 | Class
 
 | URI
-| `cim:TransformerEnd`
+| `cim:BaseVoltage`
 
 
 | CIM standard (perspective)
@@ -23,8 +23,7 @@
 
 == Class hierarchy
 * xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
-** *`TransformerEnd`*
- *** xref::class/PowerTransformerEnd.adoc[`PowerTransformerEnd`]
+** *`BaseVoltage`*
 
 
 == Slots
@@ -39,15 +38,6 @@ vars: {
     pad: 20
   }
 }
-TransformerEnd {
-  style {
-    fill: "#eccfcb"
-    shadow: true
-  }
-}
-
-
-
 BaseVoltage {
   style {
     fill: "#eccfcb"
@@ -57,20 +47,8 @@ BaseVoltage {
 
 
 
-Terminal {
-  style {
-    fill: "#eccfcb"
-    shadow: true
-  }
-}
 
 
-
-
-TransformerEnd -> BaseVoltage: base_voltage
-
-
-TransformerEnd -> Terminal: terminal
 
 
 legend: "" {
@@ -126,18 +104,11 @@ legend: "" {
 |===
 | Name | Type | Description | Inherited from
 
-| <<base_voltage,`base_voltage`>>
-//| [[slots_table.base_voltage]]<<base_voltage,`base_voltage`>>
-| 1 +
-xref::class/BaseVoltage.adoc[`BaseVoltage`]
-| +++Base voltage of the transformer end.  This is essential for PU calculation.+++
-| _n/a_
-
-| <<terminal,`terminal`>>
-//| [[slots_table.terminal]]<<terminal,`terminal`>>
-| 1 +
-xref::class/Terminal.adoc[`Terminal`]
-| +++Terminal of the power transformer to which this transformer end belongs.+++
+| <<nominalVoltage,`nominalVoltage`>>
+//| [[slots_table.nominalVoltage]]<<nominalVoltage,`nominalVoltage`>>
+| 0..1 +
+xref::class/Voltage.adoc[`Voltage`]
+| +++The power system resource's base voltage.  Shall be a positive value and not zero.+++
 | _n/a_
 
 | <<description,`description`>>
@@ -156,32 +127,6 @@ https://w3id.org/linkml/String[`string`]
 |===
 
 '''
-
-
-//[discrete]
-[#base_voltage]
-=== `base_voltage`
-+++Base voltage of the transformer end.  This is essential for PU calculation.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:TransformerEnd.BaseVoltage`
-| Cardinality
-| 1
-| Type
-| xref::class/BaseVoltage.adoc[`BaseVoltage`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.base_voltage,&#10548;>>
---
-////
 
 
 //[discrete]
@@ -244,19 +189,19 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 
 
 //[discrete]
-[#terminal]
-=== `terminal`
-+++Terminal of the power transformer to which this transformer end belongs.+++
+[#nominalVoltage]
+=== `nominalVoltage`
++++The power system resource's base voltage.  Shall be a positive value and not zero.+++
 
 
 [cols="h,4",width=65%]
 |===
 | URI
-| `cim:TransformerEnd.Terminal`
+| `cim:BaseVoltage.nominalVoltage`
 | Cardinality
-| 1
+| 0..1
 | Type
-| xref::class/Terminal.adoc[`Terminal`]
+| xref::class/Voltage.adoc[`Voltage`]
 
 
 |===
@@ -264,7 +209,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 ////
 [.text-left]
 --
-<<slots_table.terminal,&#10548;>>
+<<slots_table.nominalVoltage,&#10548;>>
 --
 ////
 
@@ -275,4 +220,14 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 == Used by
 
 
-This class is not used by any other classes as the range of a slot.
+[cols="1,1",width=65%]
+|===
+| Source class | Slot name
+
+
+
+| xref::class/TransformerEnd.adoc[`TransformerEnd`] | xref::class/TransformerEnd.adoc#base_voltage[`base_voltage`]
+
+
+|===
+

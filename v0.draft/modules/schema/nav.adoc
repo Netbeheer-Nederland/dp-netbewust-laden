@@ -24,6 +24,10 @@
 
 
 
+*** xref::class/BaseVoltage.adoc[BaseVoltage]
+
+
+
 *** xref::class/ConductingEquipment.adoc[ConductingEquipment]
 
 
@@ -195,6 +199,7 @@
 
 ** CIM data types
 *** xref::class/ActivePower.adoc[ActivePower]
+*** xref::class/Voltage.adoc[Voltage]
 
 
 ** Enumerations
