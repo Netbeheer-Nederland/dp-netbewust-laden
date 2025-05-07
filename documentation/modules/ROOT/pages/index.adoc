@@ -22,7 +22,7 @@ grid-rows: 10
 grid-columns: 6
 
 horizontal-gap: 160
-vertical-gap: 80
+vertical-gap: 160
 
 vars: {
   d2-config: {
@@ -30,65 +30,88 @@ vars: {
   }
 }
 
-ForecastDataSet.class: dataset
-GeographicalRegion.class: enterprise
-Line.class: grid
-ACLineSegment.class: grid
-Analog.class: grid
-7.class: empty
-
 1.class: empty
-SubGeographicalRegion.class: enterprise
-Substation.class: grid
-PowerTransformer.class: grid
-OperationalLimitSet.class: grid
-9.class: empty
-
 2.class: empty
-10.class: empty
-11.class: empty
-TopologicalNode.class: grid
-12.class: empty
-13.class: empty
+cim\:ActivePowerLimit.class: grid
+cim\:OperationalLimitSet.class: grid
+cim\:PowerTransformerEnd_01: {
+  class: grid
+  label: "cim:PowerTransformerEnd"
+}
+cim\:Analog.class: grid
 
+ForecastDataSet.class: dataset
+cim\:GeographicalRegion.class: enterprise
+cim\:SubGeographicalRegion.class: enterprise
+cim\:Substation.class: grid
+cim\:PowerTransformer.class: grid
 3.class: empty
-RegisteredLoad.class: market
-MktConnectivityNode.class: market
-Terminal.class: grid
-14.class: empty
-15.class: empty
 
 4.class: empty
-MarketParticipant.class: market
-UsagePoint.class: enterprise
-EnergyConsumer.class: grid
-Location.class: enterprise
-19.class: empty
-
 5.class: empty
-MarketRole.class: market
-20.class: empty
-21.class: empty
-22.class: empty
-23.class: empty
+6.class: empty
+cim\:Location_02: {
+    class: enterprise
+    label: "cim:Location"
+}
+cim\:PowerTransformerEnd_02: {
+  class: grid
+  label: "cim:PowerTransformerEnd"
+}
+cim\:BaseVoltage.class: grid
 
-ForecastDataSet -> GeographicalRegion
-GeographicalRegion -> SubGeographicalRegion
-SubGeographicalRegion -> Substation
-SubGeographicalRegion -> Line
-Substation -> PowerTransformer
-Line -> ACLineSegment
-PowerTransformer -> Analog
-PowerTransformer -> OperationalLimitSet
-PowerTransformer -> TopologicalNode
-TopologicalNode -> Terminal
-Terminal -> EnergyConsumer
-EnergyConsumer -> Location
-EnergyConsumer -> UsagePoint
-Terminal -> MktConnectivityNode
-MktConnectivityNode -> RegisteredLoad
-RegisteredLoad -> MarketParticipant
-MarketParticipant -> MarketRole
+9.class: empty
+cim\:MarketParticipant.class: market
+cim\:RegisteredLoad.class: market
+cim\:MktConnectivityNode: {
+  class: market
+}
+cim\:TopologicalNode: {
+  class: grid
+}
+10.class: empty
+
+11.class: empty
+cim\:MarketRole.class: market
+12.class: empty
+cim\:UsagePoint.class: enterprise
+cim\:EnergyConsumer.class: grid
+cim\:Location.class: enterprise
+
+ForecastDataSet -> cim\:GeographicalRegion: "geographical_regions"
+cim\:GeographicalRegion -> cim\:SubGeographicalRegion: "regions"
+cim\:SubGeographicalRegion -> cim\:Substation: "substations"
+cim\:Substation -> cim\:PowerTransformer: "equipments"
+cim\:Substation -> cim\:Location_02: "location"
+cim\:PowerTransformer -> cim\:PowerTransformerEnd_01: "power_transformer_end"
+cim\:PowerTransformerEnd_01 <-> cim\:OperationalLimitSet: {
+  label: "operational_\nlimit_set"
+  source-arrowhead.shape: circle
+}
+cim\:PowerTransformerEnd_01 <-> cim\:Analog: {
+  label: "measurements"
+  source-arrowhead.shape: circle
+}
+cim\:OperationalLimitSet -> cim\:ActivePowerLimit: "operational_limit"
+cim\:PowerTransformerEnd_02 -> cim\:BaseVoltage: "base_voltage"
+cim\:PowerTransformerEnd_02 <-> cim\:TopologicalNode: {
+  label: "topological_nodes"
+  source-arrowhead.shape: circle
+}
+cim\:PowerTransformer -> cim\:PowerTransformerEnd_02: "power_transformer_end"
+cim\:TopologicalNode <-> cim\:EnergyConsumer: {
+  label: "conducting_equipment"
+  source-arrowhead.shape: circle
+}
+cim\:EnergyConsumer -> cim\:Location: "location"
+cim\:EnergyConsumer -> cim\:UsagePoint: "usage_points"
+cim\:TopologicalNode <-> cim\:MktConnectivityNode: {
+  label: "connectivity_node"
+  source-arrowhead.shape: circle
+}
+cim\:MktConnectivityNode -> cim\:RegisteredLoad: "registered_resource"
+cim\:RegisteredLoad -> cim\:MarketParticipant: "market_participant"
+cim\:MarketParticipant -> cim\:MarketRole: "market_roles"
 
 legend: "" {
   style: {
@@ -170,6 +193,17 @@ classes: {
   }
 }
 ----
+
+Future versions will include the following additions:
+
+* BaseVoltage becomes required for outgoing PowerTransformer;
+* OperationalLimitSet and Analog move to outgoing PowerTransformerEnd;
+* Substations in multiple parts of the grid (MV/LV) are supported through the
+use of BaseVoltage. Associate the cluster of charge points through the
+TopologicalNode to multiple outgoing PowerTransformerEnds;
+* EnergyConsumer.location moves to UsagePoint.location, to allow UsagePoints to
+have a separate Location for a single EnergyConsumer. This is required for
+large scale EnergyConsumers, such as airports and football arenas.
 
 == Additional schemas
 
