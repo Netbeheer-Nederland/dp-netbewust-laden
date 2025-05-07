@@ -991,7 +991,7 @@ classes:
       base_voltage:
         slot_uri: cim:TransformerEnd.BaseVoltage
         range: BaseVoltage
-        required: true
+        required: false
         multivalued: false
         description: Base voltage of the transformer end.  This is essential for PU
           calculation.
