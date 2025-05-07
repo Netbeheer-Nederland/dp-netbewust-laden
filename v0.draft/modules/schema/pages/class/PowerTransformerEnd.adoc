@@ -134,7 +134,7 @@ legend: "" {
 
 | <<base_voltage,`base_voltage`>>
 //| [[slots_table.base_voltage]]<<base_voltage,`base_voltage`>>
-| 1 +
+| 0..1 +
 xref::class/BaseVoltage.adoc[`BaseVoltage`]
 | +++Base voltage of the transformer end.  This is essential for PU calculation.+++
 | xref::class/TransformerEnd.adoc[`TransformerEnd`]
@@ -175,7 +175,7 @@ https://w3id.org/linkml/String[`string`]
 | URI
 | `cim:TransformerEnd.BaseVoltage`
 | Cardinality
-| 1
+| 0..1
 | Type
 | xref::class/BaseVoltage.adoc[`BaseVoltage`]
 

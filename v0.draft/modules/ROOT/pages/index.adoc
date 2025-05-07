@@ -194,6 +194,17 @@ classes: {
 }
 ----
 
+Future versions will include the following additions:
+
+* BaseVoltage becomes required for outgoing PowerTransformer;
+* OperationalLimitSet and Analog move to outgoing PowerTransformerEnd;
+* Substations in multiple parts of the grid (MV/LV) are supported through the
+use of BaseVoltage. Associate the cluster of charge points through the
+TopologicalNode to multiple outgoing PowerTransformerEnds;
+* EnergyConsumer.location moves to UsagePoint.location, to allow UsagePoints to
+have a separate Location for a single EnergyConsumer. This is required for
+large scale EnergyConsumers, such as airports and football arenas.
+
 == Additional schemas
 
 * xref:schema:attachment$schemas/json_schema/dp_netbewust_laden.json_schema.json[JSON schema]

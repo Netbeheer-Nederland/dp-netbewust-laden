@@ -1597,7 +1597,10 @@
             "properties": {
                 "base_voltage": {
                     "description": "Base voltage of the transformer end.  This is essential for PU calculation.",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "description": {
                     "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
@@ -1616,7 +1619,6 @@
                 }
             },
             "required": [
-                "base_voltage",
                 "terminal",
                 "m_rid"
             ],
@@ -1978,7 +1980,10 @@
             "properties": {
                 "base_voltage": {
                     "description": "Base voltage of the transformer end.  This is essential for PU calculation.",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "description": {
                     "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
@@ -1997,7 +2002,6 @@
                 }
             },
             "required": [
-                "base_voltage",
                 "terminal",
                 "m_rid"
             ],
